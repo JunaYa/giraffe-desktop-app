@@ -9,11 +9,26 @@ if (process.env.NODE_ENV !== 'development') {
 }
 
 let mainWindow;
+let tray;
+
 const winURL = process.env.NODE_ENV === 'development'
   ? 'http://localhost:9080'
   : `file://${__dirname}/index.html`;
 
+function createTray() {
+  const menuIcon = process.platform === 'darwin' ? `${__static}/ic-write.png` : `${__static}/ic-book.png`;
+  tray = new Tray(menuIcon);
+  tray.on('click', () => {
+    if (mainWindow) {
+      mainWindow.hide();
+    }
+  });
+}
+
 function createWindow() {
+  if (process.platform !== 'darwin' && process.platform !== 'win32') {
+    return;
+  }
   /**
    * Initial window options
    */
@@ -51,6 +66,7 @@ function createWindow() {
 
 app.on('ready', () => {
   createWindow();
+  createTray();
 });
 
 app.on('window-all-closed', () => {
