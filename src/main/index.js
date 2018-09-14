@@ -1,4 +1,4 @@
-import { app, BrowserWindow } from 'electron' // eslint-disable-line
+import { app, BrowserWindow, Tray } from 'electron' // eslint-disable-line
 
 /**
  * Set `__static` path to static files in production
@@ -17,11 +17,30 @@ function createWindow() {
   /**
    * Initial window options
    */
-  mainWindow = new BrowserWindow({
+  const options = {
+    width: 1024,
     height: 640,
     useContentSize: true,
-    width: 1080,
-  });
+    show: true, // 创建后是否显示
+    frame: true, // 是否创建子 frameless 窗口
+    fullscreenable: true, // 是否允许全屏
+    center: true, // 是否出现在屏幕居中位置
+    backgroundColor: '#333333',
+    titleBarStyle: 'hidden', // 标题栏样式 hidden、hiddenInset、customButtonsOnHover
+    resizable: false, // 是否允许拉伸大小
+    transparent: false, // 是否是透明窗口
+    vibrancy: 'ultra-dark', // 窗口模糊的样式（仅macOS）
+    webPreferences: {
+      backgroundThrottling: false, // 当页面被置于非激活状态时是否停止动画和计时器
+    },
+  };
+  if (process.platform === 'win32') {
+    options.show = true;
+    options.frame = false;
+    options.backgroundColor = '#3g33c37';
+  }
+
+  mainWindow = new BrowserWindow(options);
 
   mainWindow.loadURL(winURL);
 
@@ -30,7 +49,12 @@ function createWindow() {
   });
 }
 
-app.on('ready', createWindow);
+app.on('ready', () => {
+  createWindow();
+  if (process.platform === 'darwin' || process.platform === 'win32') {
+    // createTray();
+  }
+});
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
