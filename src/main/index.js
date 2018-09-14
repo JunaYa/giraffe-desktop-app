@@ -51,9 +51,6 @@ function createWindow() {
 
 app.on('ready', () => {
   createWindow();
-  if (process.platform === 'darwin' || process.platform === 'win32') {
-    // createTray();
-  }
 });
 
 app.on('window-all-closed', () => {
