@@ -16,10 +16,7 @@ const winURL =
       : `file://${__dirname}/index.html`;
 
 function createTray() {
-  const menuIcon =
-        process.platform === 'darwin'
-          ? `${__static}/ic-write.png`
-          : `${__static}/ic-book.png`;
+  const menuIcon = `${__static}/ic-write.png`;
   const tray = new Tray(menuIcon);
   const contextMenu = Menu.buildFromTemplate([
     {
