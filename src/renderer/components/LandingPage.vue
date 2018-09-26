@@ -1,5 +1,6 @@
 <template>
   <div id="wrapper">
+    <canvas class="background"></canvas>
     <img id="logo" src="~@/assets/logo.png" alt="electron-vue">
     <main>
       <div class="left-side">
@@ -8,7 +9,6 @@
         </span>
         <system-information></system-information>
       </div>
-
       <div class="right-side">
         <div class="doc">
           <div class="title">Getting Started</div>
@@ -30,6 +30,7 @@
 </template>
 
 <script>
+  import particles from 'particlesjs';
   import SystemInformation from './LandingPage/SystemInformation';
 
   export default {
@@ -39,6 +40,17 @@
       open(link) {
         this.$electron.shell.openExternal(link);
       },
+    },
+    mounted() {
+      particles.init({
+        selector: '.background',
+        maxParticles: 86,
+        sizeVariations: 4,
+        speed: 0.05,
+        color: ['#333333', '#666666', '#999999'],
+        minDistance: 108,
+        connectParticles: false,
+      });
     },
   };
 </script>
@@ -54,13 +66,22 @@
 
   body { font-family: 'Source Sans Pro', sans-serif; }
 
-  #wrapper {
+  .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
     background:
       radial-gradient(
         ellipse at top left,
         rgba(255, 255, 255, 1) 40%,
         rgba(229, 229, 229, .9) 100%
       );
+  }
+
+  #wrapper {
     height: 100vh;
     padding: 60px 80px;
     width: 100vw;
