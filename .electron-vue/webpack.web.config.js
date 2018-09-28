@@ -38,6 +38,17 @@ let webConfig = {
         use: ['vue-style-loader', 'css-loader', 'sass-loader?indentedSyntax']
       },
       {
+        test: /\.scss$/,
+        use: {
+          loader: 'sass-resources-loader',
+          options: {
+            resources: [
+              path.resolve(__dirname, '../src/assets/styles/global.scss'),
+            ]
+          }
+        }
+      },
+      {
         test: /\.less$/,
         use: ['vue-style-loader', 'css-loader', 'less-loader']
       },
