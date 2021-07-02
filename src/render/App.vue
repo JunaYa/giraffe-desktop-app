@@ -1,8 +1,5 @@
 <template>
-  <!-- <img class="logo" alt="Vue logo" src="./assets/vite.svg" />
-  <img class="logo" alt="Vue logo" src="./assets/logo.png" />
-  <img class="logo" alt="Vue logo" src="./assets/electron.png" />
-  <HelloWorld :msg="msg" /> -->
+  <div>{{ $store.state.count }}</div>
   <Home/>
 </template>
 
@@ -17,10 +14,11 @@ export default defineComponent({
   },
   data () {
     return {
-      msg: ''
+      msg: '',
     }
   },
   mounted() {
+    this.$store.commit('settings/increment')
     getHello().then((res: any) => {
       this.msg = res.data
     })
