@@ -1,28 +1,31 @@
-# giraffe-app
+# Electron + Vue 3 + Typescript + Vite Project Template
+<p align="center">
+  <img width="100px" src="./src/render/assets/vite.svg">
+  <img width="100px" src="./src/render/assets/logo.png">
+  <img width="100px" src="./src/render/assets/electron.png">
+</p>
 
-> An electron-vue project
+<p align="center">
+  <img src="https://img.shields.io/badge/Vue-^3.0.5-brightgreen?style=plastic&logo=Vue.js">
+  <img src="https://img.shields.io/badge/Electron-^12.0.1-brightgreen?style=plastic&logo=electron">
+</p>
 
-#### Build Setup
+This template should help get you started developing with Vite、Vue 3 and Typescript in Electron.
 
-``` bash
-# install dependencies
-npm install
+## How to Use
 
-# serve with hot reload at localhost:9080
-npm run dev
+clone this repository or use [ctm-cli](https://www.npmjs.com/package/ctm-cli) tool.
 
-# build electron application for production
-npm run build
+## Run Dev
 
-# run unit & end-to-end tests
-npm test
+Listen for main process file changes to restart
 
-
-# lint all JS/Vue component files in `src/`
-npm run lint
-
+```sh
+yarn dev
 ```
 
----
+## Build package
 
-This project was generated with [electron-vue](https://github.com/SimulatedGREG/electron-vue)@[14285cd](https://github.com/SimulatedGREG/electron-vue/tree/14285cdcdad6b1e69cf29a68162756274ec0f407) using [vue-cli](https://github.com/vuejs/vue-cli). Documentation about the original structure can be found [here](https://simulatedgreg.gitbooks.io/electron-vue/content/index.html).
+```sh
+yarn bd
+```
