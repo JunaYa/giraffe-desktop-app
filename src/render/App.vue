@@ -1,17 +1,14 @@
 <template>
   <Things />
-  <Home />
 </template>
 
 <script lang="ts">
   import { defineComponent } from 'vue'
-  import Home from '@/pages/home/Home.vue'
   import Things from '@/pages/things/Things.vue'
   import { getHello } from './api'
   export default defineComponent({
     name: 'App',
     components: {
-      Home,
       Things,
     },
     data() {
@@ -28,17 +25,21 @@
 </script>
 
 <style>
+  body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    border: 0;
+  }
+
   #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
-    margin-top: 60px;
-  }
-
-  .logo {
-    width: 150px;
-    margin-right: 20px;
+    width: 100%;
+    height: 100%;
+    display: flex;
   }
 </style>
