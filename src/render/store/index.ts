@@ -8,5 +8,6 @@ export default createStore({
   modules: {
     users,
     tags,
+    settings,
   },
 })

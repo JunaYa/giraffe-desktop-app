@@ -243,7 +243,7 @@
           </div>
           <div class="project-boxes jsGridView">
             <div class="project-box-wrapper">
-              <div class="project-box" style="background-color: #fee4cb">
+              <div class="project-box" style="background-color: #fee4cb;">
                 <div class="project-box-header">
                   <span>December 10, 2020</span>
                   <div class="more-wrapper">
@@ -276,7 +276,7 @@
                   <div class="box-progress-bar">
                     <span
                       class="box-progress"
-                      style="width: 60%; background-color: #ff942e"
+                      style="width: 60%; background-color: #ff942e;"
                     ></span>
                   </div>
                   <p class="box-progress-percentage">60%</p>
@@ -291,7 +291,7 @@
                       src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTB8fG1hbnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60"
                       alt="participant"
                     />
-                    <button class="add-participant" style="color: #ff942e">
+                    <button class="add-participant" style="color: #ff942e;">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="12"
@@ -308,14 +308,14 @@
                       </svg>
                     </button>
                   </div>
-                  <div class="days-left" style="color: #ff942e">
+                  <div class="days-left" style="color: #ff942e;">
                     2 Days Left
                   </div>
                 </div>
               </div>
             </div>
             <div class="project-box-wrapper">
-              <div class="project-box" style="background-color: #e9e7fd">
+              <div class="project-box" style="background-color: #e9e7fd;">
                 <div class="project-box-header">
                   <span>December 10, 2020</span>
                   <div class="more-wrapper">
@@ -348,7 +348,7 @@
                   <div class="box-progress-bar">
                     <span
                       class="box-progress"
-                      style="width: 50%; background-color: #4f3ff0"
+                      style="width: 50%; background-color: #4f3ff0;"
                     ></span>
                   </div>
                   <p class="box-progress-percentage">50%</p>
@@ -363,7 +363,7 @@
                       src="https://images.unsplash.com/photo-1583195764036-6dc248ac07d9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2555&q=80"
                       alt="participant"
                     />
-                    <button class="add-participant" style="color: #4f3ff0">
+                    <button class="add-participant" style="color: #4f3ff0;">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="12"
@@ -380,7 +380,7 @@
                       </svg>
                     </button>
                   </div>
-                  <div class="days-left" style="color: #4f3ff0">
+                  <div class="days-left" style="color: #4f3ff0;">
                     2 Days Left
                   </div>
                 </div>
@@ -420,7 +420,7 @@
                   <div class="box-progress-bar">
                     <span
                       class="box-progress"
-                      style="width: 80%; background-color: #096c86"
+                      style="width: 80%; background-color: #096c86;"
                     ></span>
                   </div>
                   <p class="box-progress-percentage">80%</p>
@@ -435,7 +435,7 @@
                       src="https://images.unsplash.com/photo-1596815064285-45ed8a9c0463?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1215&q=80"
                       alt="participant"
                     />
-                    <button class="add-participant" style="color: #096c86">
+                    <button class="add-participant" style="color: #096c86;">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="12"
@@ -452,14 +452,14 @@
                       </svg>
                     </button>
                   </div>
-                  <div class="days-left" style="color: #096c86">
+                  <div class="days-left" style="color: #096c86;">
                     2 Days Left
                   </div>
                 </div>
               </div>
             </div>
             <div class="project-box-wrapper">
-              <div class="project-box" style="background-color: #ffd3e2">
+              <div class="project-box" style="background-color: #ffd3e2;">
                 <div class="project-box-header">
                   <span>December 10, 2020</span>
                   <div class="more-wrapper">
@@ -492,7 +492,7 @@
                   <div class="box-progress-bar">
                     <span
                       class="box-progress"
-                      style="width: 20%; background-color: #df3670"
+                      style="width: 20%; background-color: #df3670;"
                     ></span>
                   </div>
                   <p class="box-progress-percentage">20%</p>
@@ -507,7 +507,7 @@
                       src="https://images.unsplash.com/photo-1587628604439-3b9a0aa7a163?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MjR8fHdvbWFufGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60"
                       alt="participant"
                     />
-                    <button class="add-participant" style="color: #df3670">
+                    <button class="add-participant" style="color: #df3670;">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="12"
@@ -524,14 +524,14 @@
                       </svg>
                     </button>
                   </div>
-                  <div class="days-left" style="color: #df3670">
+                  <div class="days-left" style="color: #df3670;">
                     2 Days Left
                   </div>
                 </div>
               </div>
             </div>
             <div class="project-box-wrapper">
-              <div class="project-box" style="background-color: #c8f7dc">
+              <div class="project-box" style="background-color: #c8f7dc;">
                 <div class="project-box-header">
                   <span>December 10, 2020</span>
                   <div class="more-wrapper">
@@ -564,7 +564,7 @@
                   <div class="box-progress-bar">
                     <span
                       class="box-progress"
-                      style="width: 60%; background-color: #34c471"
+                      style="width: 60%; background-color: #34c471;"
                     ></span>
                   </div>
                   <p class="box-progress-percentage">60%</p>
@@ -579,7 +579,7 @@
                       src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTB8fG1hbnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60"
                       alt="participant"
                     />
-                    <button class="add-participant" style="color: #34c471">
+                    <button class="add-participant" style="color: #34c471;">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="12"
@@ -596,14 +596,14 @@
                       </svg>
                     </button>
                   </div>
-                  <div class="days-left" style="color: #34c471">
+                  <div class="days-left" style="color: #34c471;">
                     2 Days Left
                   </div>
                 </div>
               </div>
             </div>
             <div class="project-box-wrapper">
-              <div class="project-box" style="background-color: #d5deff">
+              <div class="project-box" style="background-color: #d5deff;">
                 <div class="project-box-header">
                   <span>December 10, 2020</span>
                   <div class="more-wrapper">
@@ -636,7 +636,7 @@
                   <div class="box-progress-bar">
                     <span
                       class="box-progress"
-                      style="width: 40%; background-color: #4067f9"
+                      style="width: 40%; background-color: #4067f9;"
                     ></span>
                   </div>
                   <p class="box-progress-percentage">40%</p>
@@ -651,7 +651,7 @@
                       src="https://images.unsplash.com/photo-1583195764036-6dc248ac07d9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2555&q=80"
                       alt="participant"
                     />
-                    <button class="add-participant" style="color: #4067f9">
+                    <button class="add-participant" style="color: #4067f9;">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="12"
@@ -668,7 +668,7 @@
                       </svg>
                     </button>
                   </div>
-                  <div class="days-left" style="color: #4067f9">
+                  <div class="days-left" style="color: #4067f9;">
                     2 Days Left
                   </div>
                 </div>
@@ -1019,8 +1019,8 @@
       background-color: var(--main-color);
       position: relative;
 
-      &:before,
-      &:after {
+      &::before,
+      &::after {
         content: '';
         position: absolute;
         width: 12px;
@@ -1028,13 +1028,14 @@
         border-radius: 4px;
         background-color: var(--main-color);
         left: 50%;
-        transform: translatex(-50%);
+        transform: translateX(-50%);
       }
 
-      &:before {
+      &::before {
         top: -6px;
       }
-      &:after {
+
+      &::after {
         bottom: -6px;
       }
     }
@@ -1070,7 +1071,8 @@
     width: 100%;
     max-width: 480px;
     color: var(--light-font);
-    box-shadow: 0 2px 6px 0 rgba(136, 148, 171, 0.2),
+    box-shadow:
+      0 2px 6px 0 rgba(136, 148, 171, 0.2),
       0 24px 20px -24px rgba(71, 82, 107, 0.1);
     overflow: hidden;
 
@@ -1228,12 +1230,12 @@
     flex-direction: column;
     margin-right: 16px;
 
-    &:not(:last-child) .status-type:after {
+    &:not(:last-child) .status-type::after {
       content: '';
       position: absolute;
       right: 8px;
       top: 50%;
-      transform: translatey(-50%);
+      transform: translateY(-50%);
       width: 6px;
       height: 6px;
       border-radius: 50%;
@@ -1428,6 +1430,7 @@
         display: flex;
         border-radius: 10px;
         position: relative;
+
         > * {
           margin-right: 24px;
         }
@@ -1455,7 +1458,7 @@
         justify-content: flex-start;
       }
 
-      .project-box-footer:after {
+      .project-box-footer::after {
         display: none;
       }
 
@@ -1486,6 +1489,7 @@
 
   .project-box {
     --main-color-card: #dbf6fd;
+
     border-radius: 30px;
     padding: 16px;
     background-color: var(--main-color-card);
@@ -1530,7 +1534,7 @@
     border: none;
     flex-shrink: 0;
 
-    /*&:after, &:before {
+    /* &:after, &:before {
     content: '';
     position: absolute;
     width: 6px;
@@ -1541,9 +1545,9 @@
     left: 50%;
     transform: translatex(-50%);
   }
-  
+
   &:before { top: 0;}
-  &:after { bottom: 0; }*/
+  &:after { bottom: 0; } */
   }
 
   .more-wrapper {
@@ -1602,7 +1606,7 @@
     padding-top: 16px;
     position: relative;
 
-    &:after {
+    &::after {
       content: '';
       position: absolute;
       background-color: rgba(255, 255, 255, 0.6);
@@ -1681,7 +1685,7 @@
       font-size: 14px;
     }
 
-    .status-type:after {
+    .status-type::after {
       width: 4px;
       height: 4px;
     }
@@ -1738,6 +1742,7 @@
     .projects-section {
       overflow: auto;
     }
+
     .project-boxes {
       overflow-y: visible;
     }
@@ -1794,7 +1799,7 @@
     .status-type {
       padding-right: 4px;
 
-      &:after {
+      &::after {
         display: none;
       }
     }

@@ -23,10 +23,13 @@
     "@vitejs/plugin-vue-jsx": "^1.1.6",
     "@vue/compiler-sfc": "^3.0.5",
     "@vue/eslint-config-prettier": "^6.0.0",
+    "@vue/eslint-config-typescript": "^7.0.0",
     "electron": "^12.0.1",
     "electron-builder": "^22.10.5",
     "electron-dev-runner": "^1.0.1",
+    "eslint": "^7.29.0",
     "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-vue": "^7.12.1",
     "lint-staged": "^11.0.0",
     "prettier": "^2.3.2",
     "sass": "^1.35.1",
@@ -63,10 +66,11 @@
     ]
   },
   "gitHooks": {
-    "pre-commit": "lint-staged"
+    "pre-commit": "lint-staged",
+    "commit-msg": "node .commitlint.js"
   },
   "lint-staged": {
-    "*.{js,ts,vue}": "eslint --fix",
+    "*.{ts,vue}": "eslint --fix",
     "*.{css,scss,vue}": "stylelint --fix",
     "*": "prettier -w -u"
   }

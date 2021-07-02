@@ -1,16 +1,18 @@
 <template>
-  <div>{{ $store.state.count }}</div>
+  <Things />
   <Home />
 </template>
 
 <script lang="ts">
   import { defineComponent } from 'vue'
-  import Home from '@/components/Home.vue'
+  import Home from '@/pages/home/Home.vue'
+  import Things from '@/pages/things/Things.vue'
   import { getHello } from './api'
   export default defineComponent({
     name: 'App',
     components: {
       Home,
+      Things,
     },
     data() {
       return {
@@ -18,7 +20,6 @@
       }
     },
     mounted() {
-      this.$store.commit('settings/increment')
       getHello().then((res: any) => {
         this.msg = res.data
       })
@@ -35,6 +36,7 @@
     color: #2c3e50;
     margin-top: 60px;
   }
+
   .logo {
     width: 150px;
     margin-right: 20px;

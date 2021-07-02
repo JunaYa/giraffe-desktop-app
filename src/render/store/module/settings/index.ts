@@ -6,7 +6,7 @@ const state = {
 const getters = {}
 
 const mutations = {
-  increment(state) {
+  increment(state: { count: number }) {
     state.count++
   },
 }
