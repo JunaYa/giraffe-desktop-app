@@ -13,16 +13,13 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: join(__dirname, 'src/render/index.html'),
-      }
-    }
+      },
+    },
   },
   resolve: {
     alias: {
-      '@': join(__dirname, 'src/render')
-    }
+      '@': join(__dirname, 'src/render'),
+    },
   },
-  plugins: [
-    Vue(),
-    VueJsx(),
-  ]
+  plugins: [Vue(), VueJsx()],
 })

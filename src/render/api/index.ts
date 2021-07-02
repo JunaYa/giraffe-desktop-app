@@ -1,4 +1,4 @@
-const Router = require('@cyyjs/electron-router');
+const Router = require('@cyyjs/electron-router')
 
 Router.get('hello', () => {
   return 'hello word!'

@@ -6,17 +6,17 @@ const state = {
 const getters = {}
 
 const mutations = {
-  increment (state) {
+  increment(state) {
     state.count++
-  }
+  },
 }
 
 const actions = {}
 
 export default {
   namespaced: true,
-	state,
-	getters,
-	mutations,
-	actions,
+  state,
+  getters,
+  mutations,
+  actions,
 }

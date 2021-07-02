@@ -7,9 +7,9 @@ const mutations = {}
 const actions = {}
 
 export default {
-	namespaced: true,
-	state,
-	getters,
-	mutations,
-	actions,
+  namespaced: true,
+  state,
+  getters,
+  mutations,
+  actions,
 }

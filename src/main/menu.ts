@@ -1,4 +1,4 @@
-import { app, Menu, MenuItemConstructorOptions, shell } from 'electron';
+import { app, Menu, MenuItemConstructorOptions, shell } from 'electron'
 
 const appName = 'vite-electron'
 const template: MenuItemConstructorOptions[] = [
@@ -13,16 +13,16 @@ const template: MenuItemConstructorOptions[] = [
       { label: '粘贴', role: 'paste' },
       { label: '粘贴并匹配样式', role: 'pasteAndMatchStyle' },
       { label: '删除', role: 'delete' },
-      { label: '全选', role: 'selectAll' }
-    ]
+      { label: '全选', role: 'selectAll' },
+    ],
   },
   {
     role: 'window',
     label: '窗口',
     submenu: [
-      {label: '重新加载', role: 'reload'},
-      { label: '最小化', role: 'minimize' }
-    ]
+      { label: '重新加载', role: 'reload' },
+      { label: '最小化', role: 'minimize' },
+    ],
   },
   {
     role: 'help',
@@ -31,17 +31,19 @@ const template: MenuItemConstructorOptions[] = [
       {
         label: '反馈建议',
         click() {
-          shell.openExternal('https://github.com/cyytemplate/vite-electron-ts/issues')
-        }
+          shell.openExternal(
+            'https://github.com/cyytemplate/vite-electron-ts/issues'
+          )
+        },
       },
       {
         label: 'GitHub',
         click() {
           shell.openExternal('https://github.com/cyytemplate/vite-electron-ts')
-        }
-      }
-    ]
-  }
+        },
+      },
+    ],
+  },
 ]
 
 if (process.platform === 'darwin') {
@@ -56,8 +58,8 @@ if (process.platform === 'darwin') {
       { label: '隐藏其他', role: 'hideOthers' },
       { label: '显示全部', role: 'unhide' },
       { type: 'separator' },
-      { label: '退出' + appName, role: 'quit' }
-    ]
+      { label: '退出' + appName, role: 'quit' },
+    ],
   })
 }
 const menu = Menu.buildFromTemplate(template)

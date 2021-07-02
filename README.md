@@ -1,4 +1,5 @@
 # Electron + Vue 3 + Typescript + Vite Project Template
+
 <p align="center">
   <img width="100px" src="./src/render/assets/vite.svg">
   <img width="100px" src="./src/render/assets/logo.png">

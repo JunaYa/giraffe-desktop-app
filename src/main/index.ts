@@ -1,7 +1,7 @@
-import { join } from 'path';
-import { app, BrowserWindow } from 'electron';
-import './router';
-import './menu';
+import { join } from 'path'
+import { app, BrowserWindow } from 'electron'
+import './router'
+import './menu'
 const isDev = process.env.NODE_ENV === 'development'
 const WinURL = isDev
   ? `http://localhost:3000`
@@ -10,7 +10,7 @@ const WinURL = isDev
 let mainWindow: BrowserWindow | null = null
 let willQuitApp = false
 
-function createWindow () {
+function createWindow() {
   mainWindow = new BrowserWindow({
     minWidth: 1140,
     minHeight: 700,
@@ -21,10 +21,10 @@ function createWindow () {
       contextIsolation: false,
       enableRemoteModule: false,
       webSecurity: true,
-      nodeIntegration: true
-    }
+      nodeIntegration: true,
+    },
   })
-  
+
   if (isDev) {
     // Open the DevTools.
     mainWindow.webContents.openDevTools()
@@ -46,7 +46,6 @@ function createWindow () {
   })
 }
 
-
 app.on('ready', createWindow)
 
 app.on('window-all-closed', function () {
@@ -62,4 +61,4 @@ app.on('activate', () => {
     mainWindow.show()
   }
 })
-app.on('before-quit', () => willQuitApp = true)
+app.on('before-quit', () => (willQuitApp = true))
