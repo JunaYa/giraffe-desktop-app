@@ -25,7 +25,7 @@
 
 <style lang="scss">
   .side-bar {
-    width: 16rem;
+    width: 100%;
     height: 100%;
     background: #333;
     padding-top: 2rem;

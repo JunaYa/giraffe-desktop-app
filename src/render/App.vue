@@ -30,6 +30,8 @@
     height: 100vh;
     margin: 0;
     border: 0;
+    -webkit-user-select: none;
+    user-select: none;
   }
 
   #app {
