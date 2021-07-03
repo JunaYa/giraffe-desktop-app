@@ -1,1 +1,5 @@
-export const actions = {}
+export const actions = {
+  init(context) {
+    context.commit('init')
+  },
+}

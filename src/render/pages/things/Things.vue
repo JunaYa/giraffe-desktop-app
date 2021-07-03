@@ -16,12 +16,8 @@
     },
     setup() {
       const store = useStore()
-      const increament = () => store.commit('settings/increment')
-
-      return {
-        count: computed(() => store.state.settings.count),
-        increament,
-      }
+      store.dispatch('init')
+      return {}
     },
   })
 </script>
