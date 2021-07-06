@@ -32,6 +32,7 @@
     border: 0;
     -webkit-user-select: none;
     user-select: none;
+    overflow-x: hidden;
   }
 
   #app {

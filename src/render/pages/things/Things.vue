@@ -1,9 +1,7 @@
 <template>
-  <div class="scalable">
+  <div class="scalable" :style="{ width: sidebarWidth + 'px' }">
     <SideBar />
-    <div class="separator">
-      <i></i><i></i>
-    </div>
+    <div class="separator"><i></i><i></i></div>
   </div>
   <div class="main">
     <Container />
@@ -11,7 +9,7 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent, computed } from 'vue'
+  import { defineComponent, ref, onMounted } from 'vue'
   import { useStore } from 'vuex'
   import SideBar from './SideBar.vue'
   import Container from './Container.vue'
@@ -24,7 +22,34 @@
     setup() {
       const store = useStore()
       store.dispatch('init')
-      return {}
+      let sidebarWidth = ref<any>(200)
+      let startWidth = ref<any>(200)
+      let startX = ref<any>(0)
+
+      onMounted(() => {
+        const startDrag = (e: any) => {
+          startWidth.value = sidebarWidth.value
+          startX.value = e.clientX
+          document.documentElement.addEventListener('mousemove', onDrag)
+          document.documentElement.addEventListener('mouseup', stopDrag)
+        }
+
+        const onDrag = (e: any) => {
+          sidebarWidth.value = startWidth.value + e.clientX - startX.value
+        }
+
+        const stopDrag = (e: any) => {
+          document.documentElement.removeEventListener('mousemove', onDrag)
+          document.documentElement.removeEventListener('mouseup', stopDrag)
+        }
+
+        document
+          ?.querySelector('.separator')
+          ?.addEventListener('mousedown', startDrag)
+      })
+      return {
+        sidebarWidth,
+      }
     },
   })
 </script>
@@ -32,7 +57,7 @@
 <style scoped lang="scss">
   .scalable {
     position: relative;
-    min-width: 12rem;
+    min-width: 36px;
     padding-right: 14px;
   }
 
@@ -49,8 +74,8 @@
     right: 0;
     width: 14px;
     height: 100%;
-    background-color: #FFFFFF;
-    box-shadow: 0px 0px 2px rgba(0, 0, 0, .35);
+    background-color: #ffffff;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.35);
     cursor: col-resize;
   }
 
