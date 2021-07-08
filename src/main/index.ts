@@ -4,7 +4,7 @@ import './router'
 import './menu'
 const isDev = process.env.NODE_ENV === 'development'
 const WinURL = isDev
-  ? `http://localhost:3000`
+  ? `http://127.0.0.1:3333`
   : 'file://' + join(__dirname, '../../dist/render/index.html')
 
 let mainWindow: BrowserWindow | null = null
