@@ -1,12 +1,24 @@
 <template>
-  <div class="container"></div>
+  <div class="container">
+    <Eye v-if="showEye" />
+  </div>
 </template>
 
 <script lang="ts">
-  import { defineComponent } from 'vue'
+  import { defineComponent, computed } from 'vue'
+  import { useStore } from 'vuex'
+  import Eye from '@/components/eye/Eye.vue'
 
   export default defineComponent({
-    setup() {},
+    components: {
+      Eye,
+    },
+    setup() {
+      const store = useStore()
+      return {
+        showEye: computed(() => store.state.settings.showEye),
+      }
+    },
   })
 </script>
 

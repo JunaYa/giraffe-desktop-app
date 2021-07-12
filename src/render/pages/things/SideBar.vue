@@ -7,6 +7,7 @@
     </div>
     <div class="footer">
       <div class="btn-setting" @click="onOpenSetting">settting</div>
+      <div class="btn-showEye" @click="onToggleShowEye">show-eye-toggle</div>
     </div>
     <teleport to="#things_main">
       <SettingsPage />
@@ -26,14 +27,17 @@
     setup() {
       const store = useStore()
       const showSetting = ref(false)
-      console.log(store.state.things)
       const onOpenSetting = () => {
         showSetting.value = !showSetting.value
+      }
+      const onToggleShowEye = () => {
+        store.commit('settings/toggleShowEye')
       }
       return {
         navList: computed(() => store.state.things.navList),
         showSetting,
         onOpenSetting,
+        onToggleShowEye,
       }
     },
   })

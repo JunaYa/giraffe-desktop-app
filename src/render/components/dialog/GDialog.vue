@@ -16,18 +16,16 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+  import { defineComponent } from 'vue'
 
-export default defineComponent({
-  name: 'GDialog',
-  setup() {
-    props: {
-
-    }
-  },
-})
+  export default defineComponent({
+    name: 'GDialog',
+    setup() {
+      props: {
+      }
+    },
+  })
 </script>
-
 
 <style scoped>
   .g-dialog {
@@ -36,7 +34,7 @@ export default defineComponent({
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(0, 0, 0, .3);
+    background-color: rgba(0, 0, 0, 0.3);
     padding: 16px;
   }
 </style>
