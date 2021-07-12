@@ -1,55 +1,60 @@
 <template>
-  <div class="settings-page">
-    <div class="setting-container"></div>
-  </div>
-  <g-dialog>
+  <GDialog>
     <div class="settings-list">
       <div class="settings-list-item">
-        <span>按钮</span>
-        <button>语言</button>
+        <span>语言</span>
+        <button>选择</button>
       </div>
       <div class="settings-list-item">
-        <span>按钮</span>
-        <button>主题</button>
+        <span>主题</span>
+        <button>选择</button>
+      </div>
+      <div class="settings-list-item">
+        <span>things 功能</span>
+        <button @click="onSelectNav('things')">选择</button>
+      </div>
+      <div class="settings-list-item">
+        <span>users 功能</span>
+        <button @click="onSelectNav('users')">选择</button>
       </div>
     </div>
-  </g-dialog>
+  </GDialog>
 </template>
 
 <script lang="ts">
   import { defineComponent } from 'vue'
+  import { useStore } from 'vuex'
   import GDialog from '@/components/dialog/GDialog.vue'
 
   export default defineComponent({
     components: {
       GDialog,
     },
-    setup() {},
+    setup() {
+      const store = useStore()
+      const onSelectNav = (moduleName: string) => {
+        if (moduleName === 'things') {
+          store.commit('init')
+          return
+        }
+        store.commit('updateNavList', store.state[moduleName].navList)
+      }
+      return {
+        onSelectNav,
+      }
+    },
   })
 </script>
 
 <style scoped>
-  .settings-page {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.3);
+  .settings-list {
     padding: 16px;
   }
-
-  .setting-container {
-    background-color: #fff;
-    border-radius: 3px;
-    height: 100%;
-    padding: 16px;
-  }
-
   .settings-list-item {
     display: flex;
     align-items: center;
     justify-content: space-between;
     line-height: 48px;
+    background-color: #fff;
   }
 </style>

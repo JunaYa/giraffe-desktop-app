@@ -8,4 +8,7 @@ export const mutations = {
       { id: 1005, name: 'Logbook', icon: 'icon-logbook' },
     ]
   },
+  updateNavList(state, list) {
+    state.navList = list
+  },
 }

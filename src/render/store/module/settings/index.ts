@@ -2,7 +2,8 @@ const state = {
   count: 0,
   theme: {},
   language: 'zh',
-  showEye: true,
+  showEye: false,
+  showDialogSetting: false,
 }
 const getters = {}
 
@@ -12,6 +13,9 @@ const mutations = {
   },
   toggleShowEye(state: { showEye: boolean }) {
     state.showEye = !state.showEye
+  },
+  toggleDialogSettings(state: { showDialogSetting: boolean }) {
+    state.showDialogSetting = !state.showDialogSetting
   },
 }
 
