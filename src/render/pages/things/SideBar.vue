@@ -5,19 +5,35 @@
         {{ item.name }}
       </div>
     </div>
+    <div class="footer">
+      <div class="btn-setting" @click="onOpenSetting">settting</div>
+    </div>
+    <teleport to="#things_main">
+      <SettingsPage />
+    </teleport>
   </div>
 </template>
 
 <script lang="ts">
-  import { defineComponent, computed } from 'vue'
+  import { defineComponent, computed, ref } from 'vue'
   import { useStore } from 'vuex'
+  import SettingsPage from '@/pages/settings/Settings.vue'
 
   export default defineComponent({
+    components: {
+      SettingsPage,
+    },
     setup() {
       const store = useStore()
+      const showSetting = ref(false)
       console.log(store.state.things)
+      const onOpenSetting = () => {
+        showSetting.value = !showSetting.value
+      }
       return {
         navList: computed(() => store.state.things.navList),
+        showSetting,
+        onOpenSetting,
       }
     },
   })
@@ -40,6 +56,10 @@
         font-weight: 500;
         text-align: right;
       }
+    }
+
+    .footer {
+      color: white;
     }
   }
 </style>

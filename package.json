@@ -66,11 +66,10 @@
     ]
   },
   "gitHooks": {
-    "pre-commit": "lint-staged",
     "commit-msg": "node .commitlint.js"
   },
   "lint-staged": {
-    "*.{ts,vue}": "eslint --fix",
+    "*.{vue}": "eslint --fix",
     "*.{css,scss,vue}": "stylelint --fix",
     "*": "prettier -w -u"
   }

@@ -3,7 +3,7 @@
     <SideBar />
     <div class="separator"><i></i><i></i></div>
   </div>
-  <div class="main">
+  <div class="main" id="things_main">
     <Container />
   </div>
 </template>
@@ -63,6 +63,7 @@
 
   .main {
     flex: 1;
+    position: relative;
   }
 
   .scalable .separator {
