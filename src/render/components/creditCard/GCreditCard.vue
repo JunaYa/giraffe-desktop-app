@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper" id="app">
+  <div class="wrapper">
     <div class="card-form">
       <div class="card-list">
         <div class="card-item" v-bind:class="{ '-active': isCardFlipped }">
@@ -8,7 +8,7 @@
               class="card-item__focus"
               v-bind:class="{ '-active': focusElementStyle }"
               v-bind:style="focusElementStyle"
-              ref="focusElement"
+              ref="refFocusElement"
             ></div>
             <div class="card-item__cover">
               <img
@@ -46,7 +46,7 @@
               <label
                 for="cardNumber"
                 class="card-item__number"
-                ref="cardNumber"
+                ref="refCardNumber"
               >
                 <template v-if="getCardType === 'amex'">
                   <span v-for="(n, $index) in amexCardMask" :key="$index">
@@ -117,24 +117,28 @@
                 </template>
               </label>
               <div class="card-item__content">
-                <label for="cardName" class="card-item__info" ref="cardName">
+                <label for="cardName" class="card-item__info" ref="refCardName">
                   <div class="card-item__holder">Card Holder</div>
                   <transition name="slide-fade-up">
                     <div class="card-item__name" v-if="cardName.length" key="1">
                       <transition-group name="slide-fade-right">
-                        <span
-                          class="card-item__nameItem"
-                          v-for="(n, $index) in cardName.replace(/\s\s+/g, ' ')"
-                          v-if="$index === $index"
-                          v-bind:key="$index + 1"
-                          >{{ n }}</span
-                        >
+                        <template v-if="$index === $index">
+                          <span
+                            class="card-item__nameItem"
+                            v-for="(n, $index) in cardName.replace(
+                              /\s\s+/g,
+                              ' '
+                            )"
+                            v-bind:key="$index + 1"
+                            >{{ n }}</span
+                          >
+                        </template>
                       </transition-group>
                     </div>
                     <div class="card-item__name" v-else key="2">Full Name</div>
                   </transition>
                 </label>
-                <div class="card-item__date" ref="cardDate">
+                <div class="card-item__date" ref="refCardDate">
                   <label for="cardMonth" class="card-item__dateTitle"
                     >Expires</label
                   >
@@ -150,7 +154,7 @@
                   <label for="cardYear" class="card-item__dateItem">
                     <transition name="slide-fade-up">
                       <span v-if="cardYear" v-bind:key="cardYear">{{
-                        String(cardYear).slice(2, 4)
+                        cardYear.slice(2, 4)
                       }}</span>
                       <span v-else key="2">YY</span>
                     </transition>
@@ -202,7 +206,7 @@
             v-model="cardNumber"
             v-on:focus="focusInput"
             v-on:blur="blurInput"
-            data-ref="cardNumber"
+            data-ref="refCardNumber"
             autocomplete="off"
           />
         </div>
@@ -215,7 +219,7 @@
             v-model="cardName"
             v-on:focus="focusInput"
             v-on:blur="blurInput"
-            data-ref="cardName"
+            data-ref="refCardName"
             autocomplete="off"
           />
         </div>
@@ -231,7 +235,7 @@
                 v-model="cardMonth"
                 v-on:focus="focusInput"
                 v-on:blur="blurInput"
-                data-ref="cardDate"
+                data-ref="refCardDate"
               >
                 <option value="" disabled selected>Month</option>
                 <option
@@ -249,7 +253,7 @@
                 v-model="cardYear"
                 v-on:focus="focusInput"
                 v-on:blur="blurInput"
-                data-ref="cardDate"
+                data-ref="refCardDate"
               >
                 <option value="" disabled selected>Year</option>
                 <option
@@ -287,34 +291,30 @@
 </template>
 
 <script lang="ts">
-  import { defineComponent } from 'vue'
+  import { defineComponent, onMounted, ref, computed, watchEffect } from 'vue'
 
   export default defineComponent({
-    setup() {},
-    data() {
-      return {
-        currentCardBackground: Math.floor(Math.random() * 25 + 1), // just for fun :D
-        cardName: '',
-        cardNumber: '',
-        cardMonth: '',
-        cardYear: '',
-        cardCvv: '',
-        minCardYear: new Date().getFullYear(),
-        amexCardMask: '#### ###### #####',
-        otherCardMask: '#### #### #### ####',
-        cardNumberTemp: '',
-        isCardFlipped: false,
-        focusElementStyle: null,
-        isInputFocused: false,
-      }
-    },
-    mounted() {
-      this.cardNumberTemp = this.otherCardMask
-      document?.getElementById('cardNumber')?.focus()
-    },
-    computed: {
-      getCardType() {
-        let number = this.cardNumber
+    setup() {
+      const currentCardBackground = ref(Math.floor(Math.random() * 25 + 1))
+      const cardName = ref('')
+      const cardNumber = ref('')
+      const cardMonth = ref(0)
+      const cardYear = ref('')
+      const cardCvv = ref('')
+      const minCardYear = ref(new Date().getFullYear() + '')
+      const amexCardMask = ref('#### ###### #####')
+      const otherCardMask = ref('#### #### #### ####')
+      const cardNumberTemp = ref('')
+      const isCardFlipped = ref(false)
+      const focusElementStyle = ref({})
+      const isInputFocused = ref(false)
+      const refFocusElement = ref<Element | null>(null)
+      const refCardNumber = ref<Element | null>(null)
+      const refCardName = ref<Element | null>(null)
+      const refCardDate = ref<Element | null>(null)
+
+      const getCardType = computed(() => {
+        let number = cardNumber.value
         let re = new RegExp('^4')
         if (number.match(re) != null) return 'visa'
 
@@ -331,47 +331,98 @@
         if (number.match(re) != null) return 'troy'
 
         return 'visa' // default type
-      },
-      generateCardNumberMask() {
-        return this.getCardType === 'amex'
-          ? this.amexCardMask
-          : this.otherCardMask
-      },
-      minCardMonth() {
-        if (this.cardYear === this.minCardYear) return new Date().getMonth() + 1
+      })
+
+      const generateCardNumberMask = computed(() => {
+        return getCardType.value === 'amex' ? amexCardMask : otherCardMask
+      })
+
+      const minCardMonth = computed(() => {
+        if (cardYear === minCardYear) {
+          return new Date().getMonth() + 1
+        }
         return 1
-      },
-    },
-    watch: {
-      cardYear() {
-        if (this.cardMonth < this.minCardMonth) {
-          this.cardMonth = ''
+      })
+
+      onMounted(() => {
+        cardNumberTemp.value = otherCardMask.value
+        document?.getElementById('cardNumber')?.focus()
+      })
+
+      const flipCard = (status: boolean) => {
+        isCardFlipped.value = status
+      }
+
+      const focusInput = (e: { target: { dataset: { ref: string } } }) => {
+        isInputFocused.value = true
+        const targetRef = e.target.dataset.ref
+        let width: number = 0
+        let height: number = 0
+        let offsetLeft: number = 0
+        let offsetTop: number = 0
+        const { value: selfEl } = refCardNumber
+        console.log(selfEl)
+        switch (targetRef) {
+          case 'refCardNumber':
+            const { value: selfEl } = refCardNumber
+            // height = refCardNumber.offsetHeigth
+            break
+          case 'refCardName':
+            // width = refCardNumber.offsetWidth
+            // height = refCardNumber.offsetHeigth
+            break
+          case 'refCardDate':
+            // width = refCardDate.offsetWidth
+            // height = refCardDate.offsetHeigth
+            break
         }
-      },
-    },
-    methods: {
-      flipCard(status: boolean) {
-        this.isCardFlipped = status
-      },
-      focusInput(e: { target: { dataset: { ref: any } } }) {
-        this.isInputFocused = true
-        let targetRef = e.target.dataset.ref
-        let target = this.$refs[targetRef]
-        this.focusElementStyle = {
-          width: `${target.offsetWidth}px`,
-          height: `${target.offsetHeight}px`,
-          transform: `translateX(${target.offsetLeft}px) translateY(${target.offsetTop}px)`,
+        focusElementStyle.value = {
+          width: `${width}px`,
+          height: `${height}px`,
+          transform: `translateX(${offsetLeft}px) translateY(${offsetTop}px)`,
         }
-      },
-      blurInput() {
-        let vm = this
+      }
+
+      const blurInput = () => {
         setTimeout(() => {
-          if (!vm.isInputFocused) {
-            vm.focusElementStyle = null
+          if (!isInputFocused) {
+            focusElementStyle.value = {}
           }
         }, 300)
-        vm.isInputFocused = false
-      },
+        isInputFocused.value = false
+      }
+
+      watchEffect(() => {
+        if (cardMonth < minCardMonth) {
+          cardMonth.value = 0
+        }
+      })
+
+      return {
+        currentCardBackground,
+        cardName,
+        cardNumber,
+        cardMonth,
+        cardYear,
+        cardCvv,
+        minCardYear,
+        amexCardMask,
+        otherCardMask,
+        cardNumberTemp,
+        isCardFlipped,
+        focusElementStyle,
+        isInputFocused,
+        getCardType,
+        generateCardNumberMask,
+        minCardMonth,
+        flipCard,
+        focusInput,
+        blurInput,
+        refFocusElement,
+        refCardNumber,
+        refCardName,
+        refCardDate,
+      }
     },
   })
 </script>
