@@ -1,12 +1,12 @@
 <template>
   <div class="side-bar">
     <div class="nav-group">
-      <div v-for="(item, index) in navList" :key="index" class="nav-item">
+      <div v-for="(item, index) in navList" :key="index" class="nav-item" @click="onItemNavClick(item)">
         {{ item.name }}
       </div>
     </div>
     <div class="footer">
-      <div class="btn-setting" @click="onOpenSetting">settting</div>
+      <div class="btn-setting" @click="onToggleSetting">settting</div>
       <div class="btn-showEye" @click="onToggleShowEye">show-eye-toggle</div>
     </div>
   </div>
@@ -20,16 +20,25 @@
     components: {},
     setup() {
       const store = useStore()
-      const onOpenSetting = () => {
+      const onToggleSetting = () => {
         store.commit('settings/toggleDialogSettings')
+      }
+      const onItemNavClick = (item: { action: string }) => {
+        if (store.state.settings.showDialogSetting) {
+          onToggleSetting()
+        }
+        if (item.action) {
+          store.commit(`users/${item.action}`)
+        }
       }
       const onToggleShowEye = () => {
         store.commit('settings/toggleShowEye')
       }
       return {
         navList: computed(() => store.state.things.navList),
-        onOpenSetting,
+        onToggleSetting,
         onToggleShowEye,
+        onItemNavClick,
       }
     },
   })
