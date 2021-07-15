@@ -4,20 +4,18 @@
     <div class="separator"><i></i><i></i></div>
   </div>
   <div class="main" id="things_main">
-    <Container />
+    <router-view />
   </div>
 </template>
 
 <script lang="ts">
   import { defineComponent, ref, onMounted } from 'vue'
   import { useStore } from 'vuex'
-  import SideBar from './SideBar.vue'
-  import Container from './Container.vue'
+  import SideBar from '@/components/sideBar/index.vue'
 
   export default defineComponent({
     components: {
       SideBar,
-      Container,
     },
     setup() {
       const store = useStore()

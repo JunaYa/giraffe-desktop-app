@@ -4,8 +4,8 @@
   "description": "vite-electron-ts",
   "main": "dist/main/index.js",
   "scripts": {
-    "dev": "vite",
-    "dev:electron": "electron-dev-runner src/main/index.ts --vite",
+    "dev": "DEBUG=vite-plugin-pages:* vite",
+    "dev:electron": "electron-dev-runner src/main/index.ts DEBUG=vite-plugin-pages:* --vite",
     "start": "electron dist/main/index.js",
     "build": "tsc src/main/index.ts --moduleResolution Node --removeComments -t ES5 --outDir dist/main && vue-tsc --noEmit && vite build",
     "serve": "vite preview",
@@ -16,9 +16,12 @@
   "dependencies": {
     "@cyyjs/electron-router": "^0.2.0",
     "vue": "^3.0.5",
+    "vue-router": "^4.0.10",
     "vuex": "^4.0.2"
   },
   "devDependencies": {
+    "@vicons/ionicons4": "^0.10.0",
+    "@vicons/utils": "^0.1.4",
     "@vitejs/plugin-vue": "^1.1.5",
     "@vitejs/plugin-vue-jsx": "^1.1.6",
     "@vue/compiler-sfc": "^3.0.5",
@@ -38,6 +41,8 @@
     "stylelint-config-standard": "^22.0.0",
     "typescript": "^4.1.3",
     "vite": "^2.1.0",
+    "vite-plugin-md": "^0.6.7",
+    "vite-plugin-pages": "^0.15.0",
     "vue-tsc": "^0.0.8",
     "yorkie": "^2.0.0"
   },

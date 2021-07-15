@@ -1,0 +1,1 @@
+<template>dash board</template>

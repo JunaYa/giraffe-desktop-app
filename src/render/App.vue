@@ -33,6 +33,7 @@
     -webkit-user-select: none;
     user-select: none;
     overflow: hidden;
+    font-size: 16px;
   }
 
   #app {
@@ -44,5 +45,10 @@
     width: 100%;
     height: 100%;
     display: flex;
+  }
+
+  a {
+    color: inherit;
+    list-style: none;
   }
 </style>
