@@ -1,3 +1,1 @@
-<template>
-  Today
-</template>
+<template>Today</template>

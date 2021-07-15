@@ -1,11 +1,11 @@
 <template>
   <div
     class="g-menu"
-    :class="{ 'g-menu--selected': currentPath === info.id }"
+    :class="{ 'g-menu--selected': currentPath === info?.id }"
     @click="onClick"
   >
-    <Icon :color="info.color || 'red'" :size="'1rem'" :icon="info.icon" />
-    <span class="g-menu__content">{{ info.name }}</span>
+    <Icon :color="info?.color || 'red'" :size="'1rem'" :icon="info?.icon" />
+    <span class="g-menu__content">{{ info?.name }}</span>
   </div>
 </template>
 
@@ -25,15 +25,15 @@
       },
     },
     setup(props) {
+      const { info } = props
       const store = useStore()
       const router = useRouter()
       const onClick = () => {
-        const info = props?.info
         router.push(info?.path)
         store.commit('activeMenu', info?.id)
       }
       return {
-        ...props,
+        info,
         onClick,
         currentPath: computed(() => store.state.things.currentPage),
       }

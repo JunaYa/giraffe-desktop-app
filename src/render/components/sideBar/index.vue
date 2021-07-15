@@ -7,10 +7,9 @@
     </div>
     <div class="footer">
       <button>New List</button>
-      <button><Icon icon="icon-menu-options" size="1rem"/></button>
+      <button><Icon icon="icon-menu-options" size="1rem" /></button>
     </div>
   </div>
-
 </template>
 
 <script lang="ts">

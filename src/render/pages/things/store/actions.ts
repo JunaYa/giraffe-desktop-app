@@ -1,5 +1,5 @@
 export const actions = {
-  init(context) {
+  init(context: any) {
     context.commit('init')
   },
 }

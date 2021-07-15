@@ -1,7 +1,7 @@
 import { Menu } from './type'
 
 export const mutations = {
-  init(state) {
+  init(state: { navList: Array<Menu> }) {
     state.navList = [
       {
         id: 1001,
@@ -47,10 +47,10 @@ export const mutations = {
       },
     ]
   },
-  updateNavList(state, list: Array<Menu>) {
+  updateNavList(state: { navList: Menu[] }, list: Array<Menu>) {
     state.navList = list
   },
-  activeMenu(state, page: String) {
+  activeMenu(state: { currentPage: String }, page: String) {
     state.currentPage = page
   },
 }
