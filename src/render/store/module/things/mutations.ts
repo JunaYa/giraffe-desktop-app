@@ -1,34 +1,56 @@
+import { Menu } from './type'
+
 export const mutations = {
   init(state) {
     state.navList = [
-      { id: 1001, name: 'InBox', icon: 'icon-in-box', path: '/things/inbox' },
+      {
+        id: 1001,
+        name: 'InBox',
+        icon: 'icon-menu-inbox',
+        path: '/things/inbox',
+        color: '#fdd502',
+      },
       {
         id: 1002,
-        name: 'UpComming',
-        icon: 'icon-up-comming',
-        path: '/things/upcomming',
+        name: 'Today',
+        icon: 'icon-menu-today',
+        path: '/things/today',
+        color: '#27a2f0',
       },
       {
         id: 1003,
-        name: 'Anytime',
-        icon: 'icon-anytime',
-        path: '/things/anytime',
+        name: 'UpComming',
+        icon: 'icon-menu-upcomming',
+        path: '/things/upcomming',
+        color: '#f83470',
       },
       {
         id: 1004,
-        name: 'Someday',
-        icon: 'icon-someday',
-        path: '/things/someday',
+        name: 'Anytime',
+        icon: 'icon-menu-anytime',
+        path: '/things/anytime',
+        color: '#37a59a',
       },
       {
         id: 1005,
+        name: 'Someday',
+        icon: 'icon-menu-someday',
+        path: '/things/someday',
+        color: '#cabe86',
+      },
+      {
+        id: 1006,
         name: 'Logbook',
-        icon: 'icon-logbook',
+        icon: 'icon-menu-logbook',
         path: '/things/logbook',
+        color: '#4abd5e',
       },
     ]
   },
-  updateNavList(state, list) {
+  updateNavList(state, list: Array<Menu>) {
     state.navList = list
+  },
+  activeMenu(state, page: String) {
+    state.currentPage = page
   },
 }

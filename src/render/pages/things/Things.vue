@@ -11,7 +11,7 @@
 <script lang="ts">
   import { defineComponent, ref, onMounted } from 'vue'
   import { useStore } from 'vuex'
-  import SideBar from '../../components/sideBar/index.vue'
+  import SideBar from '@/components/sideBar/index.vue'
 
   export default defineComponent({
     components: {

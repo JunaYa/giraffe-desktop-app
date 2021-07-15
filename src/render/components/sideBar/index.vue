@@ -1,39 +1,33 @@
 <template>
   <div class="side-bar">
     <div class="nav-group">
-      <div
-        v-for="(item, index) in navList"
-        :key="index"
-        class="nav-item"
-        @click="onItemNavClick(item)"
-      >
-        <template v-if="item.path">
-          <router-link :to="item.path">{{ item.name }}</router-link>
-        </template>
-        <span v-else>{{ item.name }}</span>
-      </div>
+      <template v-for="(item, index) in navList" :key="index">
+        <Menu :info="item"></Menu>
+      </template>
     </div>
     <div class="footer">
-      <div class="btn-setting" @click="onToggleSetting">settting</div>
-      <div class="btn-showEye" @click="onToggleShowEye">show-eye-toggle</div>
-      <router-link to="/licese">Licese</router-link>
+      <button>New List</button>
+      <button><Icon icon="icon-menu-options" size="1rem"/></button>
     </div>
   </div>
+
 </template>
 
 <script lang="ts">
   import { defineComponent, computed, ref } from 'vue'
   import { useStore } from 'vuex'
-
+  import Menu from '@/components/menu/index.vue'
+  import Icon from '@/components/icons/index.vue'
   export default defineComponent({
-    components: {},
+    components: {
+      Menu,
+      Icon,
+    },
     setup() {
       const store = useStore()
 
-      const onItemNavClick = (item: { action: string }) => {}
       return {
         navList: computed(() => store.state.things.navList),
-        onItemNavClick,
       }
     },
   })
@@ -41,25 +35,29 @@
 
 <style lang="scss">
   .side-bar {
+    position: relative;
     width: 100%;
     height: 100%;
-    background: #333;
+    background: #f5f6f8;
     padding-top: 2rem;
-
     .nav-group {
       padding: 16px;
-
-      .nav-item {
-        line-height: 2rem;
-        color: #fff;
-        font-size: 1rem;
-        font-weight: 500;
-        text-align: right;
-      }
+      overflow-x: hidden;
+      overflow-y: auto;
     }
 
     .footer {
-      color: white;
+      position: absolute;
+      width: 100%;
+      bottom: 40px;
+      border-top: 1px solid #666;
+      height: 2rem;
+      line-height: 2rem;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      padding: 4 16px;
     }
   }
 </style>

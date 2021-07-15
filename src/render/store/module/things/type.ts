@@ -1,5 +1,7 @@
-export interface Nav {
-  id: number
-  name: string
-  icon: string
+export interface Menu {
+  id: Number
+  name: String
+  icon: String
+  path: String,
+  active?: Boolean,
 }
