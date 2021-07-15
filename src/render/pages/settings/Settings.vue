@@ -24,7 +24,7 @@
 <script lang="ts">
   import { defineComponent } from 'vue'
   import { useStore } from 'vuex'
-  import GDialog from '@/components/dialog/GDialog.vue'
+  import GDialog from '@/components/dialog/index.vue'
 
   export default defineComponent({
     components: {

@@ -1,20 +1,16 @@
 <template>
-  <div class="person-root">
-  </div>
+  <div class="person-root">person</div>
 </template>
 
 <script lang="ts">
   import { defineComponent, computed } from 'vue'
   import { useStore } from 'vuex'
   export default defineComponent({
-    components: {
-    },
+    components: {},
     setup() {
       const store = useStore()
 
-      return {
-        showCreditCard: computed(() => store.state.users.showCreditCard),
-      }
+      return {}
     },
   })
 </script>

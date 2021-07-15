@@ -2,9 +2,51 @@ import { join } from 'path'
 import { defineConfig } from 'vite'
 import Vue from '@vitejs/plugin-vue'
 import VueJsx from '@vitejs/plugin-vue-jsx'
+import Pages from 'vite-plugin-pages'
+import Markdown from 'vite-plugin-md'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  plugins: [
+    Vue(),
+    VueJsx(),
+    Pages({
+      pagesDir: [
+        { dir: join(__dirname, './src/render/pages'), baseRoute: '' },
+        // { dir: './src/render/pages/users', baseRoute: 'user' },
+      ],
+      exclude: ['**/components/*.vue', '**/store/'],
+      extensions: ['vue', 'md'],
+      syncIndex: true,
+      replaceSquareBrackets: true,
+      extendRoute(route) {
+        console.log('+++++', route)
+        if (route.path === '/') {
+          // Index is unauthenticated.
+          return route
+        }
+        if (route.name === 'about') {
+          route.props = (route) => ({ query: route.query.q })
+        }
+
+        if (route.name === 'components') {
+          return {
+            ...route,
+            beforeEnter: (route) => {
+              // eslint-disable-next-line no-console
+              console.log(route)
+            },
+          }
+        }
+        // Augment the route with meta that indicates that the route requires authentication.
+        return {
+          ...route,
+          meta: { auth: true },
+        }
+      },
+    }),
+    Markdown(),
+  ],
   root: join(__dirname, 'src/render'),
   base: './',
   build: {
@@ -21,7 +63,6 @@ export default defineConfig({
       '@': join(__dirname, 'src/render'),
     },
   },
-  plugins: [Vue(), VueJsx()],
   server: {
     host: '127.0.0.1',
     port: 3333,
