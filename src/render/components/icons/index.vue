@@ -40,6 +40,9 @@
     :tag="tag"
     ><Options
   /></Icon>
+  <Icon v-if="icon === 'icon-menu-plus'" :color="color" :size="size" :tag="tag"
+    ><IosAdd
+  /></Icon>
 </template>
 
 <script lang="ts">
@@ -53,6 +56,7 @@
     IosCalendar,
     MdAlbums,
     IosArchive,
+    IosAdd,
     IosOptions as Options,
   } from '@vicons/ionicons4'
 
@@ -66,6 +70,7 @@
       IosCalendar,
       MdAlbums,
       IosArchive,
+      IosAdd,
       Options,
     },
     props: {

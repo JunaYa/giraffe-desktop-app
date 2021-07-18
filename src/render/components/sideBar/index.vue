@@ -6,8 +6,14 @@
       </template>
     </div>
     <div class="footer">
-      <button>New List</button>
-      <button><Icon icon="icon-menu-options" size="1rem" /></button>
+      <div class="button-group">
+        <button class="button">
+          <Icon icon="icon-menu-plus" size="1rem" />New List
+        </button>
+        <button class="button">
+          <Icon icon="icon-menu-options" size="1rem" />
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -47,16 +53,43 @@
 
     .footer {
       position: absolute;
-      width: 100%;
-      bottom: 40px;
-      border-top: 1px solid #666;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      transform: translate(0, -100%);
+      border-top: 1px solid #ddd;
       height: 2rem;
       line-height: 2rem;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-      padding: 4 16px;
+
+      .button-group {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 4px 16px;
+        overflow: hidden;
+
+        .button {
+          border: 1px solid #f5f6f8;
+          background: #f5f6f8;
+          padding: 4px;
+          border-radius: 2px;
+          cursor: pointer;
+          outline: none;
+          display: inline-flex;
+
+          &:hover {
+            border: 1px solid #ddd;
+          }
+          &:active {
+            border: 1px solid #ddd;
+          }
+          &:focus {
+            border: 1px solid #ddd;
+            background: #dce0e7;
+          }
+        }
+      }
     }
   }
 </style>

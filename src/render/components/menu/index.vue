@@ -52,6 +52,9 @@
     padding: 4px 6px;
     border-radius: 4px;
     display: flex;
+    text-shadow: 1px 1px 0 #fff;
+    // box-shadow: 0.3rem 0.3rem 0.5rem rgb(195 193 198 / 90%), -0.2rem -0.2rem 0.4rem #fff
+    // box-shadow: inset 2px 2px 5px #babecc, inset -5px -5px 10px #fff;
 
     &--selected {
       background-color: #dce0e7;
