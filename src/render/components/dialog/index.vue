@@ -23,11 +23,11 @@
   .g-dialog {
     position: absolute;
     top: 0;
+    right: 0;
     bottom: 0;
     left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.3);
     padding: 16px;
+    background-color: rgba(0, 0, 0, 0.3);
 
     &-body {
       background-color: #fff;

@@ -60,29 +60,29 @@
   }
 
   .main {
-    flex: 1;
     position: relative;
+    flex: 1;
   }
 
   .scalable .separator {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     position: absolute;
     top: 0;
     right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 14px;
     height: 100%;
-    background-color: #ffffff;
-    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.35);
+    background-color: #fff;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.35);
     cursor: col-resize;
   }
 
   .scalable .separator i {
     display: inline-block;
-    height: 14px;
     width: 1px;
-    background-color: #e9e9e9;
+    height: 14px;
     margin: 0 1px;
+    background-color: #e9e9e9;
   }
 </style>

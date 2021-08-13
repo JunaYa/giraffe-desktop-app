@@ -1,0 +1,154 @@
+$primary: #ff7025;
+$primary-light: #f8b639;
+$primary-dark: #ff4c00;
+
+$white: #fff;
+$grey-1: #e0e5ec;
+$grey-2: #c3c1c6;
+$grey-3: #b1b1b1;
+$grey-5: #9baacf;
+$grey-fade-1: fade_out($grey-1, 0.1);
+$grey-fade-2: fade_out($grey-2, 0.1);
+
+$background: $grey-1;
+$standard-radius: 0.4em;
+$standard-transition: 260ms;
+
+/* === SHADOWS === */
+@function outset-shadow($darker-color: $grey-fade-2, $lighter-color: $white) {
+  @return 0.3em 0.3em 0.5em $darker-color, -0.2em -0.2em 0.4em $lighter-color;
+}
+
+@function sunken-shadow($darker-color: $grey-fade-2, $lighter-color: $white) {
+  @return -0.3em -0.3em 0.5em $darker-color, 0.2em 0.2em 0.4em $lighter-color;
+}
+
+@function inset-shadow($darker-color: $grey-fade-2, $lighter-color: $white) {
+  @return inset 0.2em 0.2em 0.5em $darker-color,
+    inset -0.2em -0.2em 0.5em $lighter-color;
+}
+
+@function raised-shadow($darker-color: $grey-fade-2, $lighter-color: $white) {
+  @return inset-shadow($lighter-color, $darker-color), outset-shadow();
+}
+
+@function ridge-shadow($darker-color: $grey-fade-2, $lighter-color: $white) {
+  @return inset-shadow($darker-color, $lighter-color), outset-shadow();
+}
+
+@mixin type($background: none, $color: $white) {
+  color: $color;
+  background: $background;
+
+  &:active {
+    color: $color;
+    background: darken($background, $amount: 10);
+  }
+
+  &:hover,
+  &:focus {
+    color: darken($color, $amount: 10);
+  }
+}
+
+.g-button {
+  max-width: 100%;
+  margin: 8px;
+  padding: 0.5em 1.2em;
+  font-size: 1em;
+  text-align: center;
+  text-decoration: none;
+  background: none;
+  border: none;
+  border-radius: $standard-radius;
+  outline: none;
+  cursor: pointer;
+  transition: all $standard-transition ease;
+
+  &:hover,
+  &:focus {
+    color: $primary;
+  }
+
+  &--type {
+    &-default {
+      padding: calc(0.5em - 1px) calc(1.2em - 1px);
+      border: 1px solid #333;
+    }
+
+    &-primary {
+      @include type($primary, $white);
+    }
+
+    &-info {
+      @include type(rgb(100 170 246), $white);
+    }
+
+    &-success {
+      @include type(rgb(50 160 60), $white);
+    }
+
+    &-warning {
+      @include type(rgb(254, 204, 34), $white);
+    }
+
+    &-error {
+      @include type(rgb(240 50 30), $white);
+    }
+  }
+
+  &--shadow {
+    &-raised {
+      box-shadow: raised-shadow();
+
+      &:active {
+        box-shadow: inset-shadow();
+      }
+    }
+
+    &-pill {
+      box-shadow: outset-shadow();
+
+      &:active {
+        box-shadow: inset-shadow();
+      }
+    }
+
+    &-primary {
+      color: $grey-1;
+      background: $primary;
+      box-shadow: raised-shadow($primary-dark, $primary-light);
+
+      &:active {
+        box-shadow: inset-shadow($primary-dark, $primary-light);
+      }
+
+      &:hover,
+      &:focus {
+        color: $white;
+      }
+    }
+  }
+
+  &--shape {
+    &-round {
+      border-radius: 50%;
+    }
+
+    &-square {
+      border-radius: $standard-radius;
+    }
+  }
+
+  &--pin {
+    min-width: 2em;
+    max-width: 2em;
+    min-height: 2em;
+    max-height: 2em;
+    padding: 0;
+  }
+
+  &--disabled {
+    cursor: no-drop;
+  }
+}

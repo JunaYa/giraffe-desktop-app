@@ -50,6 +50,7 @@
   .settings-list {
     padding: 16px;
   }
+
   .settings-list-item {
     display: flex;
     align-items: center;

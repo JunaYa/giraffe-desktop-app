@@ -43,8 +43,9 @@
     position: relative;
     width: 100%;
     height: 100%;
-    background: #f5f6f8;
     padding-top: 2rem;
+    background: #f5f6f8;
+
     .nav-group {
       padding: 16px;
       overflow-x: hidden;
@@ -53,13 +54,13 @@
 
     .footer {
       position: absolute;
-      bottom: 0;
       right: 0;
+      bottom: 0;
       left: 0;
-      transform: translate(0, -100%);
-      border-top: 1px solid #ddd;
       height: 2rem;
       line-height: 2rem;
+      border-top: 1px solid #ddd;
+      transform: translate(0, -100%);
 
       .button-group {
         display: flex;
@@ -70,23 +71,25 @@
         overflow: hidden;
 
         .button {
-          border: 1px solid #f5f6f8;
-          background: #f5f6f8;
-          padding: 4px;
-          border-radius: 2px;
-          cursor: pointer;
-          outline: none;
           display: inline-flex;
+          padding: 4px;
+          background: #f5f6f8;
+          border: 1px solid #f5f6f8;
+          border-radius: 2px;
+          outline: none;
+          cursor: pointer;
 
           &:hover {
             border: 1px solid #ddd;
           }
+
           &:active {
             border: 1px solid #ddd;
           }
+
           &:focus {
-            border: 1px solid #ddd;
             background: #dce0e7;
+            border: 1px solid #ddd;
           }
         }
       }

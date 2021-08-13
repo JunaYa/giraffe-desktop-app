@@ -43,22 +43,23 @@
 
 <style scoped lang="scss">
   .g-menu {
+    display: flex;
     flex: 1;
-    color: #4c4e53;
-    font-size: 0.8rem;
-    font-weight: 600;
-    text-align: left;
     margin-bottom: 8px;
     padding: 4px 6px;
-    border-radius: 4px;
-    display: flex;
+    color: #4c4e53;
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-align: left;
     text-shadow: 1px 1px 0 #fff;
+    border-radius: 4px;
     // box-shadow: 0.3rem 0.3rem 0.5rem rgb(195 193 198 / 90%), -0.2rem -0.2rem 0.4rem #fff
     // box-shadow: inset 2px 2px 5px #babecc, inset -5px -5px 10px #fff;
 
     &--selected {
       background-color: #dce0e7;
     }
+
     &__content {
       margin-left: 4px;
     }

@@ -83,25 +83,26 @@
     min-height: 100px;
     background: linear-gradient(-45deg, #8691b3, #edeef3);
   }
+
   .eye-root *,
-  .eye-root *:before,
-  .eye-root *:after {
-    content: '';
+  .eye-root *::before,
+  .eye-root *::after {
     position: absolute;
     top: 50%;
     left: 50%;
+    content: '';
   }
 
   .eye {
     width: 332px;
     height: 332px;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
     background: #ebedf3;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
     filter: blur(5px);
-
     animation: eyeAnimation 4s cubic-bezier(1, 0, 1, 1) infinite;
   }
+
   @keyframes eyeAnimation {
     0%,
     33%,
@@ -117,6 +118,7 @@
         inset -90px -120px 60px -20px rgba(116, 66, 255, 0.1);
       transform: translate(-50%, -50%) scale(1.25);
     }
+
     65% {
       box-shadow: inset -8px -13px 60px -10px rgba(230, 230, 236, 0.2),
         44px 35px 20px -20px #687294, 11px 9px 9px -4px #6e799d,
@@ -132,83 +134,91 @@
     width: 160px;
     height: 160px;
     border-radius: 50%;
-    box-shadow: inset -50px -20px 30px 0px #e7e2f5,
-      inset 100px 10px 20px -27px #2f2c4c,
-      0px 0px 10px 7px rgba(231, 226, 245, 1);
-
+    box-shadow: inset -50px -20px 30px 0 #e7e2f5,
+      inset 100px 10px 20px -27px #2f2c4c, 0 0 10px 7px rgba(231, 226, 245, 1);
     animation: pupilAnimationSize 4s cubic-bezier(1, 0, 1, 1) infinite,
       pupilAnimationView 4s ease infinite;
   }
+
   @keyframes pupilAnimationSize {
     0%,
     30%,
     100% {
       transform: translate(-50%, -50%) scale(0.85);
     }
+
     40%,
     90% {
       transform: translate(-50%, -50%) scale(0.5);
     }
   }
+
   @keyframes pupilAnimationView {
     0%,
     30%,
     100% {
-      box-shadow: inset -50px -20px 30px 0px #e7e2f5,
-        inset 100px 10px 20px -27px #2f2c4c,
-        0px 0px 10px 7px rgba(231, 226, 245, 1);
+      box-shadow: inset -50px -20px 30px 0 #e7e2f5,
+        inset 100px 10px 20px -27px #2f2c4c, 0 0 10px 7px rgba(231, 226, 245, 1);
     }
+
     60%,
     66% {
-      box-shadow: inset -50px -20px 30px 0px rgba(231, 226, 245, 0),
+      box-shadow: inset -50px -20px 30px 0 rgba(231, 226, 245, 0),
         inset 10px 10px 70px -27px rgba(47, 44, 76, 0),
-        0px 0px 10px 7px hsla(256, 49%, 92%, 0);
+        0 0 10px 7px hsla(256, 49%, 92%, 0);
     }
+
     90% {
-      box-shadow: inset -50px -20px 30px 0px #e7e2f5,
-        inset 100px 10px 20px -27px #2f2c4c,
-        0px 0px 10px 7px rgba(231, 226, 245, 1);
+      box-shadow: inset -50px -20px 30px 0 #e7e2f5,
+        inset 100px 10px 20px -27px #2f2c4c, 0 0 10px 7px rgba(231, 226, 245, 1);
     }
   }
 
   .circle-1 {
     width: 475px;
     height: 475px;
-    border-radius: 50%;
     border: 1px solid transparent;
     border-right-color: rgba(223, 228, 255, 0.6);
-
+    border-radius: 50%;
     animation: circle1AnimationOpacity 4s ease infinite,
       circle1AnimationMove 4s ease infinite;
   }
+
   @keyframes circle1AnimationMove {
     00%,
     100% {
       transform: translate(-50%, -50%) rotate(49deg);
     }
+
     07% {
       transform: translate(-50%, -50%) rotate(38deg);
     }
+
     12%,
     19%,
     68% {
       transform: translate(-50%, -50%) rotate(42deg);
     }
+
     26%,
     30% {
       transform: translate(-50%, -50%) rotate(82deg);
     }
+
     73% {
       transform: translate(-50%, -50%) rotate(34deg);
     }
+
     87%,
     92% {
       transform: translate(-50%, -50%) rotate(69deg);
     }
+
     94% {
       transform: translate(-50%, -50%) rotate(65deg);
     }
   }
+
   @keyframes circle1AnimationOpacity {
     00%,
     27%,
@@ -216,6 +226,7 @@
     100% {
       opacity: 1;
     }
+
     30%,
     70% {
       opacity: 0;
@@ -225,40 +236,47 @@
   .circle-2 {
     width: 475px;
     height: 475px;
-    border-radius: 50%;
     border: 1px solid transparent;
     border-right-color: rgba(223, 228, 255, 0.6);
-
+    border-radius: 50%;
     animation: circle2AnimationOpacity 4s ease infinite,
       circle2AnimationMove 4s ease infinite;
   }
+
   @keyframes circle2AnimationMove {
     0%,
     100% {
       transform: translate(-50%, -50%) rotate(229deg);
     }
+
     9% {
       transform: translate(-50%, -50%) rotate(220deg);
     }
+
     14%,
     21% {
       transform: translate(-50%, -50%) rotate(225deg);
     }
+
     29%,
     67% {
       transform: translate(-50%, -50%) rotate(262deg);
     }
+
     82% {
       transform: translate(-50%, -50%) rotate(241deg);
     }
+
     90%,
     94% {
       transform: translate(-50%, -50%) rotate(249deg);
     }
+
     99% {
       transform: translate(-50%, -50%) rotate(245deg);
     }
   }
+
   @keyframes circle2AnimationOpacity {
     0%,
     27%,
@@ -266,6 +284,7 @@
     100% {
       opacity: 1;
     }
+
     30%,
     76% {
       opacity: 0;
@@ -273,33 +292,37 @@
   }
 
   .circle-3 {
-    left: calc(50% + 93px);
     top: calc(50% - 189px);
+    left: calc(50% + 93px);
     width: 106px;
     height: 280px;
     overflow: hidden;
   }
+
   .circle-3::before {
-    left: -275%;
     top: -4%;
+    left: -275%;
     width: 393px;
     height: 393px;
-    border-radius: 50%;
     border: 1px solid transparent;
     border-right-color: rgba(223, 228, 255, 0.6);
-
+    border-radius: 50%;
     animation: circle3Animation 4s ease infinite;
   }
+
   @keyframes circle3Animation {
     0% {
       transform: rotate(-3deg);
     }
+
     20% {
       transform: rotate(-107deg);
     }
+
     79% {
       transform: rotate(-286deg);
     }
+
     100% {
       transform: rotate(-364deg);
     }
@@ -308,55 +331,67 @@
   .circle-4 {
     width: 295px;
     height: 295px;
-    border-radius: 50%;
     border: 1px solid transparent;
     border-right-color: rgb(251, 251, 251);
     border-left-color: rgba(251, 251, 251, 0.2);
-
+    border-radius: 50%;
     animation: circle4AnimationMove 4s cubic-bezier(1, 0, 1, 1) infinite,
       circle4AnimationOpacity 4s ease infinite;
   }
+
   @keyframes circle4AnimationMove {
     0%,
     100% {
       transform: translate(-50%, -50%) rotate(219deg) scale(1);
     }
+
     6% {
       transform: translate(-50%, -50%) rotate(221deg) scale(0.9);
     }
+
     16% {
       transform: translate(-50%, -50%) rotate(302deg) scale(0.9);
     }
+
     22% {
       transform: translate(-50%, -50%) rotate(307deg) scale(0.9);
     }
+
     29% {
       transform: translate(-50%, -50%) rotate(312deg) scale(0.93);
     }
+
     33% {
       transform: translate(-50%, -50%) rotate(310deg) scale(0.93);
     }
+
     36% {
       transform: translate(-50%, -50%) rotate(300deg) scale(0.7);
     }
+
     39% {
       transform: translate(-50%, -50%) rotate(220deg) scale(0.92);
     }
+
     50%,
     57% {
       transform: translate(-50%, -50%) rotate(248deg) scale(0.92);
     }
+
     66% {
       transform: translate(-50%, -50%) rotate(225deg) scale(0.92);
     }
+
     73%,
     81% {
       transform: translate(-50%, -50%) rotate(243deg) scale(0.92);
     }
+
     93% {
       transform: translate(-50%, -50%) rotate(215deg) scale(1);
     }
   }
+
   @keyframes circle4AnimationOpacity {
     00%,
     33%,
@@ -364,6 +399,7 @@
     100% {
       opacity: 1;
     }
+
     36%,
     39% {
       opacity: 0;
@@ -374,24 +410,26 @@
     width: 100px;
     height: 100px;
     transform: translate(-50%, -50%);
-
     animation: circle5AnimationSize 4s cubic-bezier(1, 0, 1, 1) infinite,
       circle5AnimationView 4s ease infinite;
   }
+
   .circle-5::before {
     width: 173px;
     height: 173px;
-    border-radius: 50%;
     border: 1px solid rgb(251, 251, 251);
+    border-radius: 50%;
     transform: translate(-50%, -50%);
   }
+
   .circle-5::after {
     width: 177px;
     height: 177px;
-    border-radius: 50%;
     border: 1px solid rgb(251, 251, 251);
+    border-radius: 50%;
     transform: translate(-50%, -50%);
   }
+
   @keyframes circle5AnimationSize {
     0%,
     38%,
@@ -399,11 +437,13 @@
     100% {
       transform: translate(-50%, -50%) scale(1);
     }
+
     45%,
     75.44% {
       transform: translate(-50%, -50%) scale(0.7);
     }
   }
+
   @keyframes circle5AnimationView {
     0%,
     5.7%,
@@ -430,6 +470,7 @@
     100% {
       opacity: 1;
     }
+
     2.5%,
     6.6%,
     8.2%,
@@ -444,6 +485,7 @@
     88.6% {
       opacity: 0.5;
     }
+
     47%,
     77.8%,
     82.8%,
@@ -468,25 +510,28 @@
       rgba(179, 221, 255, 0.4) 0deg 1deg,
       transparent 1deg 2deg
     );
-    clip-path: url(#bagel1);
     border-radius: 50%;
-
     animation: circle6Animation 4s cubic-bezier(1, 0, 1, 1) infinite;
+    clip-path: url(#bagel1);
   }
+
   @keyframes circle6Animation {
     0% {
       transform: translate(-50%, -50%) scale(1);
     }
+
     8%,
     35% {
       transform: translate(-50%, -50%) scale(0.93);
       opacity: 1;
     }
+
     40%,
     90% {
       transform: translate(-50%, -50%) scale(0.2);
       opacity: 0;
     }
+
     95%,
     100% {
       transform: translate(-50%, -50%) scale(1);
@@ -500,9 +545,9 @@
     width: 142px;
     height: 142px;
     filter: blur(1px);
-
     animation: circle6Animation 4s -0.1s cubic-bezier(1, 0, 1, 1) infinite;
   }
+
   .circle-7::before {
     top: 0;
     left: 0;
@@ -513,8 +558,8 @@
       rgba(114, 87, 187, 0.6) 0deg 2deg,
       transparent 2deg 8deg
     );
-    clip-path: url(#bagel2);
     border-radius: 50%;
+    clip-path: url(#bagel2);
   }
 
   .circle-8 {
@@ -527,10 +572,9 @@
       rgba(236, 247, 255, 0.68) 0deg 1deg,
       transparent 1deg 2deg
     );
-    clip-path: url(#bagel3);
     border-radius: 50%;
-
     animation: circle6Animation 4s -0.13s cubic-bezier(1, 0, 1, 1) infinite;
+    clip-path: url(#bagel3);
   }
 
   .circle-9 {
@@ -543,10 +587,9 @@
       rgba(236, 247, 255, 0.68) 0deg 1deg,
       transparent 1deg 2deg
     );
-    clip-path: url(#bagel4);
     border-radius: 50%;
-
     animation: circle6Animation 4s -0.16s cubic-bezier(1, 0, 1, 1) infinite;
+    clip-path: url(#bagel4);
   }
 
   .circle-10 {
@@ -560,25 +603,28 @@
       rgba(74, 105, 160, 0.3),
       transparent 70%
     );
-    clip-path: url(#bagel1);
     border-radius: 50%;
-
     animation: circle10Animation 4s cubic-bezier(1, 0, 1, 1) infinite;
+    clip-path: url(#bagel1);
   }
+
   @keyframes circle10Animation {
     0% {
       transform: translate(-50%, -50%) scale(1);
     }
+
     4%,
     30% {
       transform: translate(-50%, -50%) scale(0.93);
       opacity: 1;
     }
+
     35%,
     93% {
       transform: translate(-50%, -50%) scale(0);
       opacity: 0;
     }
+
     98%,
     100% {
       transform: translate(-50%, -50%) scale(1);
@@ -600,11 +646,11 @@
       rgba(229, 243, 255, 0.1) 10deg 11deg,
       transparent 11deg 72deg
     );
-    clip-path: url(#bagel1);
     border-radius: 50%;
-
     animation: circle11Animation 4s cubic-bezier(1, 0, 1, 1) infinite;
+    clip-path: url(#bagel1);
   }
+
   @keyframes circle11Animation {
     0%,
     98%,
@@ -612,19 +658,24 @@
       transform: translate(-50%, -50%) rotate(0deg);
       opacity: 1;
     }
+
     15% {
       transform: translate(-50%, -50%) rotate(45deg);
     }
+
     25% {
       transform: translate(-50%, -50%) rotate(-10deg);
     }
+
     30% {
       opacity: 1;
     }
+
     35% {
       transform: translate(-50%, -50%) rotate(-20deg);
       opacity: 0;
     }
+
     93% {
       transform: translate(-50%, -50%) rotate(80deg);
       opacity: 0;
@@ -645,11 +696,11 @@
       rgba(179, 220, 255, 0.15) 43deg 44deg,
       transparent 44deg 76deg
     );
-    clip-path: url(#bagel1);
     border-radius: 50%;
-
     animation: circle12Animation 4s cubic-bezier(1, 0, 1, 1) infinite;
+    clip-path: url(#bagel1);
   }
+
   @keyframes circle12Animation {
     0%,
     96%,
@@ -657,19 +708,24 @@
       transform: translate(-50%, -50%) rotate(0deg);
       opacity: 1;
     }
+
     10% {
       transform: translate(-50%, -50%) rotate(45deg);
     }
+
     25% {
       transform: translate(-50%, -50%) rotate(-45deg);
     }
+
     30% {
       opacity: 1;
     }
+
     35% {
       transform: translate(-50%, -50%) rotate(50deg);
       opacity: 0;
     }
+
     93% {
       transform: translate(-50%, -50%) rotate(-90deg);
       opacity: 0;
@@ -683,20 +739,23 @@
     animation: circle13AnimationSize 4s cubic-bezier(1, 0, 1, 1) infinite,
       circle13AnimationView 4s ease infinite;
   }
+
   .circle-13::before {
     width: 110px;
     height: 110px;
-    border-radius: 50%;
     border: 1px solid rgb(251, 251, 251);
+    border-radius: 50%;
     transform: translate(-50%, -50%);
   }
+
   .circle-13::after {
     width: 120px;
     height: 120px;
-    border-radius: 50%;
     border: 1px solid rgba(251, 251, 251, 0.5);
+    border-radius: 50%;
     transform: translate(-50%, -50%);
   }
+
   @keyframes circle13AnimationSize {
     0%,
     32%,
@@ -704,111 +763,145 @@
     100% {
       transform: translate(-50%, -50%) scale(1);
     }
+
     38%,
     82% {
       transform: translate(-50%, -50%) scale(0.2);
     }
   }
+
   @keyframes circle13AnimationView {
     /* подвигать */
     0% {
       opacity: 1;
     }
+
     2.5% {
       opacity: 0.5;
     }
+
     5.7% {
       opacity: 1;
     }
+
     6.6% {
       opacity: 0.5;
     }
+
     7.4% {
       opacity: 1;
     }
+
     8.2% {
       opacity: 0.5;
     }
+
     9.8% {
       opacity: 1;
     }
+
     10.7% {
       opacity: 0.5;
     }
+
     11.5%,
     14% {
       opacity: 1;
     }
+
     14.8% {
       opacity: 0.5;
     }
+
     15.6% {
       opacity: 1;
     }
+
     18% {
       opacity: 0.5;
     }
+
     18.9% {
       opacity: 1;
     }
+
     20.5% {
       opacity: 0.5;
     }
+
     21.3% {
       opacity: 1;
     }
+
     22.1% {
       opacity: 0.5;
     }
+
     23.8% {
       opacity: 1;
     }
+
     24.6% {
       opacity: 0.5;
     }
+
     25.4% {
       opacity: 1;
     }
+
     27.9% {
       opacity: 0.5;
     }
+
     28.7%,
     32% {
       opacity: 1;
     }
+
     38% {
       opacity: 0;
     }
+
     82% {
       opacity: 0;
     }
+
     86% {
       opacity: 1;
     }
+
     88.6% {
       opacity: 0.5;
     }
+
     90.2% {
       opacity: 0;
     }
+
     91.8% {
       opacity: 1;
     }
+
     92.7% {
       opacity: 0;
     }
+
     93.5% {
       opacity: 1;
     }
+
     96.8% {
       opacity: 0;
     }
+
     97.6% {
       opacity: 1;
     }
+
     99.2% {
       opacity: 0;
     }
+
     100% {
       opacity: 1;
     }
@@ -821,18 +914,20 @@
     animation: circle13AnimationSize 4s -0.15s cubic-bezier(1, 0, 1, 1) infinite,
       circle14AnimationView 4s ease infinite;
   }
+
   .circle-14::before {
     width: 70px;
     height: 70px;
-    border-radius: 50%;
     border: 1px solid rgba(251, 251, 251, 0.5);
+    border-radius: 50%;
     transform: translate(-50%, -50%);
   }
+
   .circle-14::after {
     width: 95px;
     height: 95px;
-    border-radius: 50%;
     border: 1px solid rgba(251, 251, 251, 0.3);
+    border-radius: 50%;
     transform: translate(-50%, -50%);
   }
 
@@ -841,101 +936,133 @@
     0% {
       opacity: 1;
     }
+
     2.5% {
       opacity: 0.5;
     }
+
     5.7% {
       opacity: 1;
     }
+
     6.6% {
       opacity: 0.5;
     }
+
     7.4% {
       opacity: 1;
     }
+
     8.2% {
       opacity: 0.5;
     }
+
     9.8% {
       opacity: 1;
     }
+
     10.7% {
       opacity: 0.5;
     }
+
     11.5%,
     14% {
       opacity: 1;
     }
+
     14.8% {
       opacity: 0.5;
     }
+
     15.6% {
       opacity: 1;
     }
+
     18% {
       opacity: 0.5;
     }
+
     18.9% {
       opacity: 1;
     }
+
     20.5% {
       opacity: 0.5;
     }
+
     21.3% {
       opacity: 1;
     }
+
     22.1% {
       opacity: 0.5;
     }
+
     23.8% {
       opacity: 1;
     }
+
     24.6% {
       opacity: 0.5;
     }
+
     25.4% {
       opacity: 1;
     }
+
     27.9% {
       opacity: 0.5;
     }
+
     28.7%,
     32% {
       opacity: 1;
     }
+
     38% {
       opacity: 0;
     }
+
     82% {
       opacity: 0;
     }
+
     86% {
       opacity: 1;
     }
+
     88.6% {
       opacity: 0.5;
     }
+
     90.2% {
       opacity: 0;
     }
+
     91.8% {
       opacity: 1;
     }
+
     92.7% {
       opacity: 0;
     }
+
     93.5% {
       opacity: 1;
     }
+
     96.8% {
       opacity: 0;
     }
+
     97.6% {
       opacity: 1;
     }
+
     99.2% {
       opacity: 0;
     }
+
     100% {
       opacity: 1;
     }
@@ -1067,11 +1194,11 @@
       70px 6px 0 1px rgba(255, 255, 255, 0.1),
       60px -2px 0 1px rgba(255, 255, 255, 0.1);
     filter: blur(1px);
-
     animation: glitchAnimationOpacity 4s cubic-bezier(1, 0, 1, 1) infinite,
       glitchAnimationMove 4s cubic-bezier(1, 0, 1, 1) infinite,
       glitchAnimationBright 4s cubic-bezier(1, 0, 1, 1) infinite;
   }
+
   @keyframes glitchAnimationOpacity {
     0%,
     30%,
@@ -1079,26 +1206,31 @@
     100% {
       opacity: 1;
     }
+
     35%,
     93% {
       opacity: 0;
     }
   }
+
   @keyframes glitchAnimationMove {
     0%,
     100% {
       transform: translate(-50%, -50%) rotate(0deg);
     }
+
     35%,
     65% {
       transform: translate(-50%, -50%) rotate(4320deg);
     }
   }
+
   @keyframes glitchAnimationBright {
     0%,
     100% {
       filter: blur(1px);
     }
+
     35%,
     65% {
       filter: blur(1px) brightness(1.8);
@@ -1110,27 +1242,31 @@
     height: 6px;
     border: 2px solid rgba(255, 255, 255, 0.3);
     border-radius: 2px;
-
     animation: fragment1BeforeAnimationMove 4s -0.15s cubic-bezier(1, 0, 1, 1) infinite;
   }
+
   @keyframes fragment1BeforeAnimationMove {
     0%,
     100% {
       transform: rotate(0deg) translate(71px, -181px);
       opacity: 1;
     }
+
     37% {
       transform: rotate(15deg) translate(71px, -181px);
       opacity: 1;
     }
+
     37.1%,
     76.9% {
       opacity: 0;
     }
+
     77% {
       transform: rotate(-2deg) translate(71px, -181px);
       opacity: 1;
     }
+
     90% {
       transform: rotate(-9deg) translate(71px, -181px);
     }
@@ -1141,29 +1277,34 @@
     height: 6px;
     border: 2px solid rgba(255, 255, 255, 0.3);
     border-radius: 2px;
-
     animation: fragment1AfterAnimationMove 4s -0.15s cubic-bezier(1, 0, 1, 1) infinite;
   }
+
   @keyframes fragment1AfterAnimationMove {
     0%,
     100% {
       transform: rotate(0deg) translate(285px, 48px);
       opacity: 1;
     }
+
     7% {
       transform: rotate(5deg) translate(285px, 48px);
     }
+
     22% {
       transform: rotate(-1deg) translate(285px, 48px);
     }
+
     40% {
       transform: rotate(-3deg) translate(285px, 48px);
       opacity: 1;
     }
+
     40.1%,
     81.9% {
       opacity: 0;
     }
+
     82% {
       transform: rotate(-15deg) translate(285px, 48px);
       opacity: 1;
@@ -1175,23 +1316,26 @@
     height: 6px;
     border: 2px solid rgba(255, 255, 255, 0.3);
     border-radius: 2px;
-
     animation: fragment2AfterAnimationMove 4s -0.15s cubic-bezier(1, 0, 1, 1) infinite;
   }
+
   @keyframes fragment2AfterAnimationMove {
     0%,
     100% {
       transform: rotate(0deg) translate(-220px, 162px);
       opacity: 1;
     }
+
     46% {
       transform: rotate(-8deg) translate(-220px, 162px);
       opacity: 1;
     }
+
     46.1%,
     97.9% {
       opacity: 0;
     }
+
     98% {
       transform: rotate(2deg) translate(-220px, 162px);
       opacity: 1;
@@ -1203,36 +1347,43 @@
     height: 6px;
     border: 2px solid rgba(255, 255, 255, 0.3);
     border-radius: 2px;
-
     animation: fragment2BeforeAnimationMove 4s -0.15s cubic-bezier(1, 0, 1, 1) infinite;
   }
+
   @keyframes fragment2BeforeAnimationMove {
     0%,
     100% {
       transform: rotate(0deg) translate(284px, 111px);
       opacity: 1;
     }
+
     2% {
       transform: rotate(2deg) translate(284px, 111px);
     }
+
     9% {
       transform: rotate(-5deg) translate(284px, 111px);
     }
+
     15%,
     22% {
       transform: rotate(-3deg) translate(284px, 111px);
     }
+
     27% {
       transform: rotate(-2deg) translate(284px, 111px);
       opacity: 1;
     }
+
     38.9% {
       transform: rotate(-9deg) translate(284px, 111px);
     }
+
     39%,
     76.9% {
       opacity: 0;
     }
+
     77% {
       transform: rotate(-9deg) translate(284px, 111px);
       opacity: 1;
@@ -1244,9 +1395,9 @@
     height: 6px;
     background: rgba(255, 255, 255, 0.3);
     border-radius: 2px;
-
     animation: fragment3AfterAnimationMove 4s -0.15s cubic-bezier(1, 0, 1, 1) infinite;
   }
+
   @keyframes fragment3AfterAnimationMove {
     0%,
     4.9%,
@@ -1254,22 +1405,27 @@
     100% {
       opacity: 0;
     }
+
     5% {
       transform: rotate(0deg) translate(183px, 198px);
       opacity: 1;
     }
+
     16% {
       transform: rotate(-9deg) translate(284px, 111px);
       opacity: 1;
     }
+
     16.1%,
     60.9% {
       opacity: 0;
     }
+
     61% {
       transform: rotate(5deg) translate(284px, 111px);
       opacity: 1;
     }
+
     65% {
       transform: rotate(10deg) translate(284px, 111px);
       opacity: 1;
@@ -1281,23 +1437,26 @@
     height: 6px;
     background: rgba(255, 255, 255, 0.3);
     border-radius: 2px;
-
     animation: fragment3BeforeAnimationMove 4s -0.15s cubic-bezier(1, 0, 1, 1) infinite;
   }
+
   @keyframes fragment3BeforeAnimationMove {
     0%,
     100% {
       transform: rotate(0deg) translate(-253px, -126px);
       opacity: 1;
     }
+
     22% {
       transform: rotate(25deg) translate(-253px, -126px);
       opacity: 1;
     }
+
     22.1%,
     95.9% {
       opacity: 0;
     }
+
     96% {
       transform: rotate(-5deg) translate(-253px, -126px);
       opacity: 1;
