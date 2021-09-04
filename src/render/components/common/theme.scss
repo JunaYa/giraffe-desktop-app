@@ -1,43 +1,45 @@
-@import './var.scss';
-
 @use "sass:map";
 
-$o-primary: #07c160;
-$o-primary-active: darken($o-primary, 10%);
-$o-primary-fade-little: fade-out($o-primary, 0.382);
-$o-primary-fade-some: fade-out($o-primary, 0.618);
-$o-primary-fade-more: fade-out($o-primary, 0.759);
-$o-primary-fade-lot: fade-out($o-primary, 0.9);
+@import './var.scss';
 
-$o-danger: #fa5151;
-$o-danger-active: darken($o-danger, 10%);
-$o-danger-fade-little: fade-out($o-danger, 0.382);
-$o-danger-fade-some: fade-out($o-danger, 0.618);
-$o-danger-fade-lot: fade-out($o-danger, 0.9);
+$g-primary: #ff7025;
+$g-primary-light: #f8b639;
+$g-primary-dark: #ff4c00;
+$g-primary-active: darken($g-primary, 10%);
+$g-primary-fade-little: fade-out($g-primary, 0.382);
+$g-primary-fade-some: fade-out($g-primary, 0.618);
+$g-primary-fade-more: fade-out($g-primary, 0.759);
+$g-primary-fade-lot: fade-out($g-primary, 0.9);
+
+$g-danger: #fa5151;
+$g-danger-active: darken($g-danger, 10%);
+$g-danger-fade-little: fade-out($g-danger, 0.382);
+$g-danger-fade-some: fade-out($g-danger, 0.618);
+$g-danger-fade-lot: fade-out($g-danger, 0.9);
 
 $options: (
-  primary: $o-primary,
-  primary-active: $o-primary-active,
-  primary-fade-little: $o-primary-fade-little,
-  primary-fade-some: $o-primary-fade-some,
-  primary-fade-more: $o-primary-fade-more,
-  primary-fade-lot: $o-primary-fade-lot,
-  danger: $o-danger,
-  danger-active: $o-danger-active,
-  danger-fade-little: $o-danger-fade-little,
-  danger-fade-some: $o-danger-fade-some,
-  danger-fade-lot: $o-danger-fade-lot,
+  primary: $g-primary,
+  primary-active: $g-primary-active,
+  primary-fade-little: $g-primary-fade-little,
+  primary-fade-some: $g-primary-fade-some,
+  primary-fade-more: $g-primary-fade-more,
+  primary-fade-lot: $g-primary-fade-lot,
+  danger: $g-danger,
+  danger-active: $g-danger-active,
+  danger-fade-little: $g-danger-fade-little,
+  danger-fade-some: $g-danger-fade-some,
+  danger-fade-lot: $g-danger-fade-lot,
 );
 
-$o-surface: #fff;
+$g-surface: #fff;
 
-$o-on-primary: #fff;
-$o-on-secondary: #fff;
-$o-on-danger: #fff;
-$o-on-surface: #000;
-$o-background: #fff;
+$g-on-primary: #fff;
+$g-on-secondary: #fff;
+$g-on-danger: #fff;
+$g-on-surface: #000;
+$g-background: #fff;
 
-$o-small-radius: 4px;
-$o-medium-radius: 4px;
-$o-large-radius: 0;
-$o-font-family: -apple-system-font, 'Helvetica Neue', sans-serif;
+$g-small-radius: 4px;
+$g-medium-radius: 4px;
+$g-large-radius: 0;
+$g-font-family: -apple-system-font, 'Helvetica Neue', sans-serif;

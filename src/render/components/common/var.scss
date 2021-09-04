@@ -1,24 +1,26 @@
 $--colors: (
   'primary': (
-    'base': #07c160,
+    'base': #ff7025,
   ),
   'success': (
-    'base': #07c160,
+    'base': #32a03c,
   ),
   'warning': (
-    'base': #f2711c,
+    'base': #fecc22,
   ),
   'danger': (
-    'base': #fa5151,
+    'base': #f0321e,
   ),
   'info': (
-    'base': #42b8dd,
+    'base': #64aaf6,
+  ),
+  'default': (
+    'base': #ff7025,
   ),
 );
 
-$--types: primary, success, warning, danger, info;
-
-$--sizes: medium, small, mini;
+$--types: primary, success, warning, danger, info, default;
+$--sizes: large, medium, small, tiny;
 
 @mixin set-color-type-fade($type) {
   $--colors: map.deep-merge(

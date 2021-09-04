@@ -1,3 +1,7 @@
+@use "sass:map";
+
+@import '../../common/theme.scss';
+
 $primary: #ff7025;
 $primary-light: #f8b639;
 $primary-dark: #ff4c00;
@@ -11,7 +15,6 @@ $grey-fade-1: fade_out($grey-1, 0.1);
 $grey-fade-2: fade_out($grey-2, 0.1);
 
 $background: $grey-1;
-$standard-radius: 0.4em;
 $standard-transition: 260ms;
 
 /* === SHADOWS === */
@@ -36,19 +39,45 @@ $standard-transition: 260ms;
   @return inset-shadow($darker-color, $lighter-color), outset-shadow();
 }
 
-@mixin type($background: none, $color: $white) {
-  color: $color;
-  background: $background;
+$--button-padding: () !default;
+$--button-padding: map.merge(
+  (
+    'large': 11px 22px,
+    'medium': 10px 20px,
+    'small': 9px 15px,
+    'tiny': 6px 10px,
+  ),
+  $--button-padding
+);
 
-  &:active {
-    color: $color;
-    background: darken($background, $amount: 10);
-  }
+$--button-font-size: () !default;
+$--button-font-size: map.merge(
+  (
+    'large': 16px,
+    'medium': 14px,
+    'small': 13px,
+    'tiny': 12px,
+  ),
+  $--button-font-size
+);
 
-  &:hover,
-  &:focus {
-    color: darken($color, $amount: 10);
-  }
+$--button-border-radius: () !default;
+$--button-border-radius: map.merge(
+  (
+    'large': 5px,
+    'medium': 4px,
+    'small': 3px,
+    'tiny': 2px,
+  ),
+  $--button-border-radius
+);
+
+:host {
+  display: inline-block;
+}
+
+:host([block]) {
+  display: block;
 }
 
 .g-button {
@@ -59,46 +88,79 @@ $standard-transition: 260ms;
   text-align: center;
   text-decoration: none;
   background: none;
-  border: none;
-  border-radius: $standard-radius;
+  border: 1px solid #5e6167;
+  border-radius: 4px;
   outline: none;
   cursor: pointer;
   transition: all $standard-transition ease;
 
-  &:hover,
-  &:focus {
-    color: $primary;
+  @each $size in $--sizes {
+    &--size-#{$size} {
+      padding: map.get($--button-padding, $size);
+      font-size: map.get($--button-font-size, $size);
+      border-radius: map.get($--button-border-radius, $size);
+    }
   }
 
-  &--type {
-    &-default {
-      padding: calc(0.5em - 1px) calc(1.2em - 1px);
-      border: 1px solid #333;
-    }
+  @each $type in $--types {
+    &--type-#{$type} {
+      color: #fff;
+      background-color: var(--g-#{$type}, map.get($--colors, $type, 'base'));
+      border-color: var(--g-#{$type}, map.get($--colors, $type, 'base'));
 
-    &-primary {
-      @include type($primary, $white);
+      &:disabled,
+      &:disabled:hover {
+        background-color:
+          var(
+            --g-#{$type}-fade-lot,
+            map.get($--colors, $type, 'fade-lot')
+          );
+      }
     }
-
-    &-info {
-      @include type(rgb(100 170 246), $white);
+    &--type-#{$type}:hover {
+      color: #fff;
+      background-color:
+        var(
+          --g-#{$type}-fade-little,
+          map.get($--colors, $type, 'fade-little')
+        );
+      border-color:
+        var(
+          --g-#{$type}-fade-little,
+          map.get($--colors, $type, 'fade-little')
+        );
     }
-
-    &-success {
-      @include type(rgb(50 160 60), $white);
+    &--type-#{$type}:active {
+      color: #fff;
+      background-color:
+        var(
+          --g-#{$type}-active,
+          map.get($--colors, $type, 'active')
+        );
+      border-color:
+        var(
+          --g-#{$type}-active,
+          map.get($--colors, $type, 'active')
+        );
     }
-
-    &-warning {
-      @include type(rgb(254, 204, 34), $white);
-    }
-
-    &-error {
-      @include type(rgb(240 50 30), $white);
+    &--type-#{$type}.is-plain {
+      color: var(--g-#{$type}, map.get($--colors, $type, 'base'));
+      background-color:
+        var(
+          --g-#{$type}-fade-lot,
+          map.get($--colors, $type, 'fade-lot')
+        );
+      border-color:
+        var(
+          --g-#{$type}-fade-some,
+          map.get($--colors, $type, 'fade-some')
+        );
     }
   }
 
   &--shadow {
     &-raised {
+      border: none;
       box-shadow: raised-shadow();
 
       &:active {
@@ -107,6 +169,7 @@ $standard-transition: 260ms;
     }
 
     &-pill {
+      border: none;
       box-shadow: outset-shadow();
 
       &:active {
@@ -117,6 +180,7 @@ $standard-transition: 260ms;
     &-primary {
       color: $grey-1;
       background: $primary;
+      border: none;
       box-shadow: raised-shadow($primary-dark, $primary-light);
 
       &:active {
@@ -136,7 +200,7 @@ $standard-transition: 260ms;
     }
 
     &-square {
-      border-radius: $standard-radius;
+      border-radius: 4px;
     }
   }
 
@@ -149,6 +213,6 @@ $standard-transition: 260ms;
   }
 
   &--disabled {
-    cursor: no-drop;
+    cursor: ng-drop;
   }
 }

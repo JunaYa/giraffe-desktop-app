@@ -37,6 +37,7 @@ const Button = defineComponent({
         class={[
           `g-button`,
           {
+            [`g-button--size-${this.size}`]: this.size,
             [`g-button--type-${this.type}`]: !this.shadow,
             [`g-button--disabled`]: this.disabled,
             [`g-button--pin`]: this.pin,

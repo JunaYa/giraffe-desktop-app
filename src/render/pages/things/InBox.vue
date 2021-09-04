@@ -4,10 +4,16 @@
     <GButton text="default" @click="onClick">aya</GButton>
     <GButton type="primary" text="primary" @click="onClick">aya</GButton>
     <GButton type="info" text="info" @click="onClick">aya</GButton>
-    <GButton type="success" text="success" @click="onClick">aya</GButton>
-    <GButton type="warning" text="warning" @click="onClick">aya</GButton>
-    <GButton type="error" text="error" @click="onClick">aya</GButton>
-    <GButton type="error" text="error" disabled @click="onClick">aya</GButton>
+    <GButton type="success" size="tiny" text="success" @click="onClick"
+      >aya</GButton
+    >
+    <GButton type="warning" size="small" text="warning" @click="onClick"
+      >aya</GButton
+    >
+    <GButton type="danger" size="medium" text="danger" @click="onClick"
+      >aya</GButton
+    >
+    <GButton type="danger" text="danger" disabled @click="onClick">aya</GButton>
   </div>
   <div class="shadow-group">
     <GButton shadow="pill" @click="onClick">aya</GButton>
